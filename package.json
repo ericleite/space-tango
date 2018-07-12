@@ -1,8 +1,30 @@
 {
   "name": "space-tango",
-  "version": "1.0",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "engines": {
+    "node": "10.x"
+  },
+  "config": {
+    "bin": "./node_modules/.bin"
+  },
+  "scripts": {
+    "start": "brunch watch --server",
+    "build": "brunch build --production"
+  },
+  "author": "Eric Leite",
   "devDependencies": {
-    "webpack": "^4.15.1",
-    "webpack-cli": "^3.0.8"
+    "auto-reload-brunch": "^2.7.1",
+    "babel-brunch": "^6.0.6",
+    "babel-preset-latest": "^6.24.1",
+    "brunch": "^2.10.12",
+    "clean-css-brunch": "^2.10.0",
+    "javascript-brunch": "^2.10.0",
+    "sass-brunch": "^2.10.4",
+    "uglify-js-brunch": "^2.10.0"
+  },
+  "dependencies": {
+    "normalize.css": "^8.0.0"
   }
 }
