@@ -1,0 +1,23 @@
+.Nav {
+  padding-top: 2 * $font-size-base;
+  padding-bottom: 2 * $font-size-base;
+
+  &-logo {
+    width: 100%;
+    max-width: 273px;
+    height: auto;
+  }
+
+  &-links {
+    flex-shrink: 0;
+  }
+
+  &-subMenu {
+    font-size: $font-size-small;
+    margin-bottom: $font-size-header-3;
+  }
+
+  &-menu {
+    font-size: $font-size-header-4;
+  }
+}

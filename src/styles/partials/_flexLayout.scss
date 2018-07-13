@@ -1,0 +1,63 @@
+.FlexLayout {
+  display: flex;
+
+  &--crossCentered {
+    align-items: center;
+  }
+
+  &--mainCentered {
+    justify-content: center;
+  }
+
+  &--mainEnd {
+    justify-content: flex-end;
+  }
+
+  &--mainSpaceBetween {
+    justify-content: space-between;
+  }
+
+  &--column {
+    flex-direction: column;
+  }
+    
+  &--space-half {
+    > * {
+      margin-right: 1/2 * $font-size-base;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--space-1 {
+    > * {
+      margin-right: 1 * $font-size-base;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--space-2 {
+    > * {
+      margin-right: 2 * $font-size-base;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &--space-3 {
+    > * {
+      margin-right: 3 * $font-size-base;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}

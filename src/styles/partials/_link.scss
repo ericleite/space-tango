@@ -1,0 +1,15 @@
+.Link {
+  color: $space-grey;
+
+  &:hover {
+    color: $space-grey;
+  }
+
+  &--light {
+    color: white;
+
+    &:hover {
+      color: white;
+    }
+  }
+}

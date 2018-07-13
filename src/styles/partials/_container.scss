@@ -1,0 +1,9 @@
+.Container {
+  width: 100%;
+  max-width: $font-size-base * 70;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  padding-left: $font-size-base;
+  padding-right: $font-size-base;
+}

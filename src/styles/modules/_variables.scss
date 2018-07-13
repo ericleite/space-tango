@@ -1,0 +1,33 @@
+// Font Weights
+$regular: 400;
+$font-weight-base: $regular;
+
+// Font Families
+$font-family-base-light: 'open_sans-light', sans-serif;
+$font-family-base: 'open_sans-regular', sans-serif;
+$font-family-monospace-bold: 'space_mono-bold', monospace;
+$font-family-monospace: 'space_mono-regular', monospace;
+
+// Sizes
+$font-size-base: 16px;
+$font-size-small: 12px;
+$line-height-base: 1;
+
+// Headings
+$font-family-header: $font-family-base-light;
+$font-size-header-1: 52px;
+$font-size-header-2: 35px;
+$font-size-header-3: 22px;
+$font-size-header-4: 18px;
+$font-size-header-5: 16px;
+
+// Breakpoints
+$bp-20: 20 * $font-size-base;
+$bp-30: 30 * $font-size-base;
+$bp-40: 40 * $font-size-base;
+$bp-50: 50 * $font-size-base;
+$bp-60: 60 * $font-size-base;
+$bp-70: 70 * $font-size-base;
+$bp-80: 80 * $font-size-base;
+$bp-90: 90 * $font-size-base;
+$bp-100: 100 * $font-size-base;
