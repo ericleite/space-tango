@@ -1,6 +1,7 @@
 // Modules
 @import 'modules/colors.scss';
 @import 'modules/variables.scss';
+@import 'modules/animations.scss';
 
 // Partials
 @import 'partials/base.scss';
@@ -8,5 +9,9 @@
 @import 'partials/container.scss';
 @import 'partials/flexLayout.scss';
 @import 'partials/section.scss';
-@import 'partials/nav.scss';
 @import 'partials/link.scss';
+@import 'partials/cta.scss';
+@import 'partials/headers.scss';
+
+@import 'partials/nav.scss';
+@import 'partials/hero.scss';

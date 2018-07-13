@@ -3,10 +3,10 @@ $regular: 400;
 $font-weight-base: $regular;
 
 // Font Families
-$font-family-base-light: 'open_sans-light', sans-serif;
 $font-family-base: 'open_sans-regular', sans-serif;
-$font-family-monospace-bold: 'space_mono-bold', monospace;
+$font-family-base-light: 'open_sans-light', sans-serif;
 $font-family-monospace: 'space_mono-regular', monospace;
+$font-family-monospace-bold: 'space_mono-bold', monospace;
 
 // Sizes
 $font-size-base: 16px;
@@ -22,6 +22,7 @@ $font-size-header-4: 18px;
 $font-size-header-5: 16px;
 
 // Breakpoints
+$bp-10: 10 * $font-size-base;
 $bp-20: 20 * $font-size-base;
 $bp-30: 30 * $font-size-base;
 $bp-40: 40 * $font-size-base;
