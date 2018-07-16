@@ -28,10 +28,15 @@ a {
 
 p {
   font-family: $font-family-base-light;
+  font-size: $font-size-header-3;
   line-height: 1.5;
   margin: 0;
 
   + p {
     margin-top: 1em;
   }
+}
+
+figure {
+  margin: 0;
 }
