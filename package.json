@@ -11,7 +11,8 @@
   },
   "scripts": {
     "start": "brunch watch --server",
-    "build": "brunch build --production"
+    "build": "brunch build --production",
+    "deploy": "gh-pages -d public"
   },
   "author": "Eric Leite",
   "devDependencies": {
@@ -20,6 +21,7 @@
     "babel-preset-latest": "^6.24.1",
     "brunch": "^2.10.12",
     "clean-css-brunch": "^2.10.0",
+    "gh-pages": "^1.2.0",
     "javascript-brunch": "^2.10.0",
     "sass-brunch": "^2.10.4",
     "uglify-js-brunch": "^2.10.0"
