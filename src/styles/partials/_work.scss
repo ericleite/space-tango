@@ -1,0 +1,24 @@
+.FeaturedWork {
+  padding-top: 5 * $font-size-base;
+  padding-bottom: 5 * $font-size-base;
+
+  &-header {
+    &-caption {
+      width: 40%;
+      flex-shrink: 0;
+
+      &-title {
+        margin-bottom: 3 * $font-size-base;
+      }
+
+      &-description {
+        color: $grey;
+      }
+    }
+
+    &-figure {
+      width: 100%;
+      height: auto;
+    }
+  }
+}

@@ -2,4 +2,4 @@
 
 const App = require('App');
 
-App.log('Hello World');
+App.init();
