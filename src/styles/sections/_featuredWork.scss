@@ -1,6 +1,6 @@
 .FeaturedWork {
-  padding-top: 5 * $font-size-base;
-  padding-bottom: 5 * $font-size-base;
+  padding-top: 10 * $font-size-base;
+  padding-bottom: 10 * $font-size-base;
 
   &-header {
     &-caption {
@@ -81,5 +81,9 @@
         height: auto;
       }
     }
+  }
+
+  &-footer {
+    padding-top: 12 * $font-size-base;
   }
 }

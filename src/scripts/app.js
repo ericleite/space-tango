@@ -6,20 +6,32 @@ const ScrollMagic = require('scrollmagic');
 // Utils
 const { findAncestor } = require('utils');
 
+/*
+* App class is the base controller for the app.
+*/
 class App {
   constructor() {
+    // Properties
     this.controller = new ScrollMagic.Controller();
     this.scenes = {};
     this.figureVideos = [];
-    this.handleMouseenterVideo = this.handleMouseenterVideo.bind(this);
-    this.handleMouseleaveVideo = this.handleMouseleaveVideo.bind(this);
+
+    // Event handlers
+    this.handleMouseenterVideo = this.handleMouseenterFigureVideo.bind(this);
+    this.handleMouseleaveVideo = this.handleMouseleaveFigureVideo.bind(this);
   }
 
+  /*
+  * Used to initialize the application. Only call this once the DOM is ready.
+  */
   init() {
     this.buildScenes();
     this.addFigures();
   }
 
+  /*
+  * Creates scroll-based animations for each section.
+  */
   buildScenes() {
     // Hero section
     const heroTrigger = '#hero';
@@ -50,19 +62,31 @@ class App {
     this.controller.addScene(this.scenes.featuredWorkHeader);
   }
 
+  
+  /*
+  * Registers featured work <figure>s.
+  */
   addFigures() {
     this.figureVideos = document.querySelectorAll('.featuredWorkFigure video');
     Array.prototype.forEach.call(this.figureVideos, video => {
-      video.addEventListener('mouseenter', this.handleMouseenterVideo);
-      video.addEventListener('mouseleave', this.handleMouseleaveVideo);
+      video.addEventListener('mouseenter', this.handleMouseenterFigureVideo);
+      video.addEventListener('mouseleave', this.handleMouseleaveFigureVideo);
     });
   }
 
-  handleMouseenterVideo(e) {
+  /*
+  * Handles mouse enter event on a <figure> <video>.
+  * @param {Event} e - Mouseenter event object.
+  */
+  handleMouseenterFigureVideo(e) {
     findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.add('secondary');
   }
 
-  handleMouseleaveVideo(e) {
+  /*
+  * Handles mouse leave event on a <figure> <video>.
+  * @param {Event} e - Mouseleave event object.
+  */
+  handleMouseleaveFigureVideo(e) {
     findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.remove('secondary');    
   }
 }
