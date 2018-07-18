@@ -1,32 +1,69 @@
 'use strict';
 
 // Libs
-const scrollMonitor = require('scrollmonitor');
+const ScrollMagic = require('scrollmagic');
+
+// Utils
+const { findAncestor } = require('utils');
 
 class App {
   constructor() {
-    this.watchers = {};
-    console.log('App initialized.');
+    this.controller = new ScrollMagic.Controller();
+    this.scenes = {};
+    this.figureVideos = [];
+    this.handleMouseenterVideo = this.handleMouseenterVideo.bind(this);
+    this.handleMouseleaveVideo = this.handleMouseleaveVideo.bind(this);
   }
 
   init() {
-    const featuredWorkHeaderCaption = document.getElementById('featuredWorkHeaderCaption');
-    this.watchers.featuredWorkHeaderCaption = scrollMonitor.create(featuredWorkHeaderCaption);
-    this.watchers.featuredWorkHeaderCaption.fullyEnterViewport(function() {
-      featuredWorkHeaderCaption.classList.add('active');
-    });
-    this.watchers.featuredWorkHeaderCaption.exitViewport(function() {
-      featuredWorkHeaderCaption.classList.remove('active');
-    });
+    this.buildScenes();
+    this.addFigures();
+  }
 
-    const featuredWorkHeaderFigure = document.getElementById('featuredWorkHeaderFigure');
-    this.watchers.featuredWorkHeaderFigure = scrollMonitor.create(featuredWorkHeaderFigure);
-    this.watchers.featuredWorkHeaderFigure.fullyEnterViewport(function() {
-      featuredWorkHeaderFigure.classList.add('active');
+  buildScenes() {
+    // Hero section
+    const heroTrigger = '#hero';
+    this.scenes.hero = [
+      new ScrollMagic.Scene({
+        triggerElement: heroTrigger,
+        reverse: false
+      }).setClassToggle('#heroHeadline', 'active'),
+      new ScrollMagic.Scene({
+        triggerElement: heroTrigger,
+        reverse: false
+      }).setClassToggle('#heroImage', 'active')
+    ];
+    this.controller.addScene(this.scenes.hero);
+
+    // Featured Work header section
+    const featuredWorkHeaderTrigger = '#featuredWorkHeader';
+    this.scenes.featuredWorkHeader = [
+      new ScrollMagic.Scene({
+        triggerElement: featuredWorkHeaderTrigger,
+        reverse: false
+      }).setClassToggle('#featuredWorkHeaderCaption', 'active'),
+      new ScrollMagic.Scene({
+        triggerElement: featuredWorkHeaderTrigger,
+        reverse: false
+      }).setClassToggle('#featuredWorkHeaderFigure', 'active')
+    ];
+    this.controller.addScene(this.scenes.featuredWorkHeader);
+  }
+
+  addFigures() {
+    this.figureVideos = document.querySelectorAll('.featuredWorkFigure video');
+    Array.prototype.forEach.call(this.figureVideos, video => {
+      video.addEventListener('mouseenter', this.handleMouseenterVideo);
+      video.addEventListener('mouseleave', this.handleMouseleaveVideo);
     });
-    this.watchers.featuredWorkHeaderFigure.exitViewport(function() {
-      featuredWorkHeaderFigure.classList.remove('active');
-    });
+  }
+
+  handleMouseenterVideo(e) {
+    findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.add('secondary');
+  }
+
+  handleMouseleaveVideo(e) {
+    findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.remove('secondary');    
   }
 }
 

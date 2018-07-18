@@ -1,37 +1,18 @@
-$animation-duration-default: 300ms;
-$animation-timing-function-default: ease;
-$animation-transition-property-opacity: opacity;
-$animation-transition-property-transform: transform;
-
-%animateDefault {
-  transition-duration: $animation-duration-default;
-  transition-timing-function: $animation-timing-function-default;
-}
-
-%fadeIn {
-  opacity: 0;
-  &.active {
-    opacity: 1;
-  }
-}
-
-%fromBottom {
-  transform: translate3d(0, 50%, 0);
-  &.active {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-%fromTopRight {
-  transform: translate3d(50%, -50%, 0);
-  &.active {
-    transform: translate3d(0, 0, 0);
-  }
-}
-
 .u-animate {
-  &--default {
-    @extend %animateDefault;
+  &--normal {
+    @include transition();
+  }
+
+  &--slow4 {
+    @include transition(4);
+  }
+
+  &--slow8 {
+    @include transition(8);
+  }
+
+  &--delay3 {
+    transition-delay: 3 * $animation-duration-default;
   }
 
   &--fadeIn {

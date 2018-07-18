@@ -1,3 +1,34 @@
+$animation-duration-default: 300ms;
+$animation-timing-function-default: ease;
+$animation-transition-property-opacity: opacity;
+$animation-transition-property-transform: transform;
+
+@mixin transition($speedFactor: 1) {
+  transition-duration: $animation-duration-default * $speedFactor;
+  transition-timing-function: $animation-timing-function-default;
+}
+
+%fadeIn {
+  opacity: 0;
+  &.active {
+    opacity: 1;
+  }
+}
+
+%fromBottom {
+  transform: translate3d(0, 50%, 0);
+  &.active {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+%fromTopRight {
+  transform: translate3d(50%, -50%, 0);
+  &.active {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
 @keyframes rotate-slowly {
   from {
     transform: rotateZ(0deg);

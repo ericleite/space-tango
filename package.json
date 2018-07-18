@@ -28,6 +28,6 @@
   },
   "dependencies": {
     "normalize.css": "^8.0.0",
-    "scrollmonitor": "^1.2.4"
+    "scrollmagic": "^2.0.5"
   }
 }
