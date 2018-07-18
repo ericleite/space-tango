@@ -14,41 +14,41 @@
           <img class="Nav-logo" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
           <div class="Nav-links FlexLayout FlexLayout--column FlexLayout--mainCentered">
             <ul class="Nav-subMenu FlexLayout FlexLayout--mainEnd FlexLayout--crossCentered FlexLayout--space-half">
-              <li><a class="Link--light" href="#">Press</a></li>
-              <li><a class="Link--light" href="#">Apply</a></li>
-              <li><a class="Link--light" href="#">Shop</a></li>
-              <li><a class="Link--light" href="#">Customer Portal</a></li>
+              <li><a class="Link Link--light" href="#">Press</a></li>
+              <li><a class="Link Link--light" href="#">Apply</a></li>
+              <li><a class="Link Link--light" href="#">Shop</a></li>
+              <li><a class="Link Link--light" href="#">Customer Portal</a></li>
             </ul>
             <ul class="Nav-menu FlexLayout FlexLayout--crossCentered FlexLayout--space-2">
-              <li><a class="Link--light" href="#">Tango Lab</a></li>
-              <li><a class="Link--light" href="#">About</a></li>
-              <li><a class="Link--light" href="#">Mission History</a></li>
-              <li><a class="Link--light" href="#">News</a></li>
-              <li><a class="Link--light" href="#">Contact</a></li>
+              <li><a class="Link Link--light" href="#">Tango Lab</a></li>
+              <li><a class="Link Link--light" href="#">About</a></li>
+              <li><a class="Link Link--light" href="#">Mission History</a></li>
+              <li><a class="Link Link--light" href="#">News</a></li>
+              <li><a class="Link Link--light" href="#">Contact</a></li>
             </ul>
           </div>
         </div>
       </nav>
-      <div class="Hero">
+      <div id="hero" class="Hero">
         <div class="Hero-headline Container">
-          <h2>The microgravity environment is a new frontier for discovery and innovation. By exploring it with industries of all kinds, we can improve life on Earth.</h2>
+          <h2 id="heroHeadline" class="u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery and innovation. By exploring it with industries of all kinds, we can improve life on Earth.</h2>
         </div>
         <div class="Hero-image FlexLayout FlexLayout--mainCentered">
-          <img src="images/globe.png" srcset="images/globe.png, images/globe.png 1.5x, images/globe.png 2x" alt"Rotating globe animation">
+          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe.png" srcset="images/globe.png, images/globe.png 1.5x, images/globe.png 2x" alt"Rotating globe animation">
         </div>
       </div>
       <article class="FeaturedWork">
         <div class="Container">
           <header id="featuredWorkHeader" class="FeaturedWork-header FlexLayout FlexLayout--space-2">
-            <div id="featuredWorkHeaderCaption" class="FeaturedWork-header-caption u-animate--default u-animate--fadeInFromBottom">
+            <div id="featuredWorkHeaderCaption" class="FeaturedWork-header-caption u-animate--slow4 u-animate--fadeInFromBottom">
               <h2 class="FeaturedWork-header-caption-title">Featured Work</h2>
               <p class="FeaturedWork-header-caption-description">Docked on the International Space Station, our payloads yield results for a diverse range of industries, for life science and physical science research  to manufacturing and beyond. Each project, in some way, shares a common goal to improve life on Earth. Here are some of our featured projects.</p>
             </div>
             <div>
-              <img id="featuredWorkHeaderFigure" class="FeaturedWork-header-figure u-animate--default u-animate--fadeInFromTopRight" src="images/iss-isolated.png" alt"International Space Station">
+              <img id="featuredWorkHeaderFigure" class="FeaturedWork-header-figure u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt"International Space Station">
             </div>
           </header>
-          <figure class="FeaturedWork-figure">
+          <figure class="FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Immiscible liquid separation</header>
               <p>Observing the passive separation and mixing of immiscible fluids in microgravity</p>
@@ -60,7 +60,7 @@
               </video>
             </div>
           </figure>
-          <figure class="FeaturedWork-figure">
+          <figure class="FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Mealworms</header>
               <p>Investigating the effects microgravity has on the Mealworm life cycle</p>
@@ -72,7 +72,7 @@
               </video>
             </div>
           </figure>
-          <figure class="FeaturedWork-figure">
+          <figure class="FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Bees</header>
               <p>Observing the behavior and flight patterns of alfalfa leaf cutting bees in the microgravity environment</p>
@@ -84,7 +84,7 @@
               </video>
             </div>
           </figure>
-          <figure class="FeaturedWork-figure">
+          <figure class="FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Barley Germination</header>
               <p>Evaluating the effects of microgravity on dry seeds, germination, and initial growth of barley</p>
@@ -96,9 +96,39 @@
               </video>
             </div>
           </figure>
+          <figure class="FeaturedWork-figure featuredWorkFigure">
+            <figcaption class="FeaturedWork-figure-caption">
+              <header>Flow Chemistry</header>
+              <p>Investigating the effects microgravity has on the Mealworm life cycle.</p>
+            </figcaption>
+            <div class="FeaturedWork-figure-video">
+              <video autoplay loop muted>
+                <source src="videos/flow-chemistry.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos.
+              </video>
+            </div>
+          </figure>
+          <figure class="FeaturedWork-figure featuredWorkFigure">
+            <figcaption class="FeaturedWork-figure-caption">
+              <header>E. COLI</header>
+              <p>Evaluating the evolution of E.Coli resistance to antibiotics in the microgravity environment</p>
+            </figcaption>
+            <div class="FeaturedWork-figure-video">
+              <video autoplay loop muted>
+                <source src="videos/e-coli.mp4" type="video/mp4" />
+                Sorry, your browser doesn't support embedded videos.
+              </video>
+            </div>
+          </figure>
+          <footer class="FeaturedWork-footer">
+            <a class="Link Link--cta" href="#">Lean more about research</a>
+          </footer>
         </div>
       </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
     <script src="vendor.js"></script>
     <script src="main.js"></script>
   </body>
