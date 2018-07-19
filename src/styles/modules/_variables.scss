@@ -12,14 +12,17 @@ $font-family-monospace-bold: 'space_mono-bold', monospace;
 $font-size-base: 16px;
 $font-size-small: 12px;
 $line-height-base: 1;
+$line-height-header: 1.2;
+$line-height-copy: 1.5;
 
 // Headings
 $font-family-header: $font-family-base-light;
 $font-size-header-1: 52px;
-$font-size-header-2: 35px;
-$font-size-header-3: 22px;
-$font-size-header-4: 18px;
-$font-size-header-5: 16px;
+$font-size-header-2: 45px;
+$font-size-header-3: 35px;
+$font-size-header-4: 22px;
+$font-size-header-5: 18px;
+$font-size-header-6: 16px;
 
 // Breakpoints
 $bp-10: 10 * $font-size-base;

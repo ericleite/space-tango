@@ -1,11 +1,12 @@
 .Hero {
+  width: 100%;
   margin-top: 10 * $font-size-base;
-  max-width: none;
+  overflow: hidden;
 
   &-headline {
     margin-bottom: 6 * $font-size-base;
 
-    > h2 {
+    &-title {
       text-align: center;
       padding: 0 13%;
     }
@@ -14,14 +15,12 @@
   &-image {
     width: 150%;
     margin-left: -25%;
-    overflow: hidden;
-    padding-top: 10px; // image gets cut off without this
 
     > img {
       height: 100%;
       width: 100%;
       max-width: 120 * $font-size-base;
-      animation-duration: 360s;
+      animation-duration: 480s;
       animation-iteration-count: infinite;
       animation-name: rotate-slowly;
       animation-timing-function: linear;

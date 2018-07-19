@@ -38,11 +38,13 @@ class App {
     this.scenes.hero = [
       new ScrollMagic.Scene({
         triggerElement: heroTrigger,
-        reverse: false
+        reverse: false,
+        triggerHook: 1
       }).setClassToggle('#heroHeadline', 'active'),
       new ScrollMagic.Scene({
         triggerElement: heroTrigger,
-        reverse: false
+        reverse: false,
+        triggerHook: 1
       }).setClassToggle('#heroImage', 'active')
     ];
     this.controller.addScene(this.scenes.hero);
@@ -52,16 +54,17 @@ class App {
     this.scenes.featuredWorkHeader = [
       new ScrollMagic.Scene({
         triggerElement: featuredWorkHeaderTrigger,
-        reverse: false
+        reverse: false,
+        triggerHook: 0.8
       }).setClassToggle('#featuredWorkHeaderCaption', 'active'),
       new ScrollMagic.Scene({
         triggerElement: featuredWorkHeaderTrigger,
-        reverse: false
+        reverse: false,
+        triggerHook: 0.8
       }).setClassToggle('#featuredWorkHeaderFigure', 'active')
     ];
     this.controller.addScene(this.scenes.featuredWorkHeader);
   }
-
   
   /*
   * Registers featured work <figure>s.
