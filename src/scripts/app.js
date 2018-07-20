@@ -4,15 +4,16 @@
 import CSSPlugin from 'gsap/CSSPlugin';
 import EasePack from 'gsap/EasePack';
 import TweenLite from 'gsap/TweenLite';
+import TimelineLite from 'gsap/TimelineLite';
 import ScrollMagic from 'scrollmagic';
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
+// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
 // Utils
 import { findAncestor } from 'utils';
 import { colors } from 'constants';
 
 // Local constants
-// Styles
 const darkBodyStyle = {
   backgroundColor: colors.spaceGrey,
   color: colors.white
@@ -25,9 +26,6 @@ const redBodyStyle = {
   backgroundColor: colors.fireEngineRed,
   color: colors.white
 };
-
-// Tweens
-const tweenBodyFromDarkToLight = TweenLite.fromTo(document.body, 1, darkBodyStyle, lightBodyStyle);
 
 /*
 * App class is the base controller for the app.
@@ -50,62 +48,99 @@ class App {
   */
   init() {
     this.buildScenes();
-    this.addFigures();
+    this.forceStartAutoplayVideos();
+    this.registerFigureVideos();
   }
 
   /*
   * Creates scroll-based animations for each section.
   */
   buildScenes() {
+    // Trigger constants
     const heroTrigger = '#hero';
     const featuredWorkHeaderTrigger = '#featuredWorkHeader';
     const cubeSectionTrigger = '#cubeSection';
 
+    // Tween constants
+    const tweenBodyFromDarkToLight = TweenLite.fromTo(document.body, 1, darkBodyStyle, lightBodyStyle);
+    const cubeSliderTimeline = new TimelineLite();
+    cubeSliderTimeline.fromTo('#slide2', 1, { top: '100%' }, { top: 0 });
+    cubeSliderTimeline.fromTo('#slide3', 1, { top: '100%' }, { top: 0 });
+
     // Hero section
     this.scenes.hero = [
+      // Caption fade/rise-in
       new ScrollMagic.Scene({
         triggerElement: heroTrigger,
         reverse: false,
         triggerHook: 1
-      }).setClassToggle('#heroHeadline', 'active'),
+      })
+        .setClassToggle('#heroHeadline', 'active'),
+      // Globe fade-in
       new ScrollMagic.Scene({
         triggerElement: heroTrigger,
         reverse: false,
         triggerHook: 1
-      }).setClassToggle('#heroImage', 'active')
+      })
+        .setClassToggle('#heroImage', 'active')
     ];
     this.controller.addScene(this.scenes.hero);
 
     // Featured Work header section
     this.scenes.featuredWorkHeader = [
+      // "Featured Work" intro fade/rise-in
       new ScrollMagic.Scene({
         triggerElement: featuredWorkHeaderTrigger,
         reverse: false,
         triggerHook: 0.8
-      }).setClassToggle('#featuredWorkHeaderCaption', 'active'),
+      })
+        .setClassToggle('#featuredWorkHeaderCaption', 'active'),
+      // ISS image fade/swoop-in
       new ScrollMagic.Scene({
         triggerElement: featuredWorkHeaderTrigger,
         reverse: false,
         triggerHook: 0.8
-      }).setClassToggle('#featuredWorkHeaderFigure', 'active')
+      })
+        .setClassToggle('#featuredWorkHeaderFigure', 'active')
     ];
     this.controller.addScene(this.scenes.featuredWorkHeader);
 
     // Cube section
     this.scenes.cubeSection = [
+      // Background color transition
       new ScrollMagic.Scene({
         triggerElement: cubeSectionTrigger,
-        triggerHook: 0.75,
-        duration: '50%'
-      }).setTween(tweenBodyFromDarkToLight)
+        triggerHook: 0.8,
+        duration: '60%'
+      })
+        .setTween(tweenBodyFromDarkToLight),
+      // Vertical cube slider
+      new ScrollMagic.Scene({
+        triggerElement: cubeSectionTrigger,
+        triggerHook: 0,
+        duration: '200%'
+      })
+        .setPin(cubeSectionTrigger)
+        .setTween(cubeSliderTimeline)
     ];
     this.controller.addScene(this.scenes.cubeSection);
   }
 
   /*
+  * Forces all autoplay videos to start.
+  */
+ forceStartAutoplayVideos() {
+    document.querySelectorAll('video').forEach(video => {
+      if (video.autoplay) {
+        video.play();
+      }
+    });
+  }
+
+  /*
   * Registers featured work <figure>s.
   */
-  addFigures() {
+  registerFigureVideos() {
     this.figureVideos = document.querySelectorAll('.featuredWorkFigure video');
     Array.prototype.forEach.call(this.figureVideos, video => {
       video.addEventListener('mouseenter', this.handleMouseenterFigureVideo);
