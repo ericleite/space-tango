@@ -65,7 +65,7 @@ class App {
     ];
     this.controller.addScene(this.scenes.featuredWorkHeader);
   }
-  
+
   /*
   * Registers featured work <figure>s.
   */
@@ -90,7 +90,7 @@ class App {
   * @param {Event} e - Mouseleave event object.
   */
   handleMouseleaveFigureVideo(e) {
-    findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.remove('secondary');    
+    findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.remove('secondary');
   }
 }
 

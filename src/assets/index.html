@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <div class="Section Section--spaceGrey">
+    <div class="Section Section--dark Section--padBottom">
       <nav class="Nav">
         <div class="Container FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
-          <img class="Nav-logo" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
+          <img class="Nav-logo u-responsive" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
           <div class="Nav-links FlexLayout FlexLayout--column FlexLayout--mainCentered">
             <ul class="Nav-subMenu FlexLayout FlexLayout--mainEnd FlexLayout--crossCentered FlexLayout--spaceHalf">
               <li><a class="Link Link--light" href="#">Press</a></li>
@@ -41,11 +41,11 @@
         <div class="Container">
           <header id="featuredWorkHeader" class="FeaturedWork-header FlexLayout">
             <div id="featuredWorkHeaderCaption" class="FeaturedWork-header-caption u-animate--slow4 u-animate--fadeInFromBottom">
-              <h2 class="FeaturedWork-header-caption-title">Featured Work</h2>
+              <h2 class="u-marginBottom">Featured Work</h2>
               <p class="FeaturedWork-header-caption-description">Docked on the International Space Station, our payloads yield results for a diverse range of industries, for life science and physical science research  to manufacturing and beyond. Each project, in some way, shares a common goal to improve life on Earth. Here are some of our featured projects.</p>
             </div>
-            <div>
-              <img id="featuredWorkHeaderFigure" class="FeaturedWork-header-figure u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt"International Space Station">
+            <div class="FeaturedWork-header-figure">
+              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt"International Space Station">
             </div>
           </header>
           <figure class="FeaturedWork-figure featuredWorkFigure">
@@ -54,7 +54,7 @@
               <p>Observing the passive separation and mixing of immiscible fluids in microgravity</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video autoplay loop muted>
+              <video class="u-responsive" autoplay loop muted>
                 <source src="videos/immiscible-liquid.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -66,7 +66,7 @@
               <p>Investigating the effects microgravity has on the Mealworm life cycle</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video autoplay loop muted>
+              <video class="u-responsive" autoplay loop muted>
                 <source src="videos/mealworms.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -78,7 +78,7 @@
               <p>Observing the behavior and flight patterns of alfalfa leaf cutting bees in the microgravity environment</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video autoplay loop muted>
+              <video class="u-responsive" autoplay loop muted>
                 <source src="videos/bees.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -90,7 +90,7 @@
               <p>Evaluating the effects of microgravity on dry seeds, germination, and initial growth of barley</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video autoplay loop muted>
+              <video class="u-responsive" autoplay loop muted>
                 <source src="videos/barley-germination.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -102,7 +102,7 @@
               <p>Investigating the effects microgravity has on the Mealworm life cycle.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video autoplay loop muted>
+              <video class="u-responsive" autoplay loop muted>
                 <source src="videos/flow-chemistry.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -114,7 +114,7 @@
               <p>Evaluating the evolution of E.Coli resistance to antibiotics in the microgravity environment</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video autoplay loop muted>
+              <video class="u-responsive" autoplay loop muted>
                 <source src="videos/e-coli.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -124,11 +124,35 @@
             <a class="Link Link--cta" href="#">Lean more about research</a>
           </footer>
         </div>
-      </div>
-      <section id="cube" class="Cube">
+      </article>
+    </div>
+    <div class="Section Section--light Section--padTop Section--padBottom">
+      <section>
         <div class="Container">
-          <h2>CubeLab</h2>
-          <div class="Cube-slide"></div>
+          <h2 class="u-marginBottom">CubeLab</h2>
+          <div class="Cube-slider">
+            <div class="Cube-slide FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+              <h3>CubeLabs are an autonomous microgravity research and manufacturing standard developed by Space Tango for modular, scalable and reconfigurable use.</h3>
+              <div>
+                <video class="u-responsive" autoplay loop muted>
+                  <source src="videos/cube-1.mp4" type="video/mp4" />
+                  Sorry, your browser doesn't support embedded videos.
+                </video>
+              </div>
+            </div>
+            <div class="Cube-slide FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+              <h3>This is another slide with information on the second cube animation.</h3>
+              <div>
+                <video class="u-responsive" autoplay loop muted>
+                  <source src="videos/cube-2.mp4" type="video/mp4" />
+                  Sorry, your browser doesn't support embedded videos.
+                </video>
+              </div>
+            </div>
+          </div>
+          <footer>
+            <a class="Link Link--cta" href="#">Lean more about research</a>
+          </footer>
         </div>
       </section>
     </div>

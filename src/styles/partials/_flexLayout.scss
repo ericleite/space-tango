@@ -17,10 +17,16 @@
     justify-content: space-between;
   }
 
+  &--equalWidth {
+    > * {
+      flex-basis: 100%;
+    }
+  }
+
   &--column {
     flex-direction: column;
   }
-    
+
   &--spaceHalf {
     > * {
       margin-right: 1/2 * $font-size-base;

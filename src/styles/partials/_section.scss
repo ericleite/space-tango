@@ -1,15 +1,38 @@
 .Section {
+  overflow: hidden;
+
   &:after, &:before {
     content: " ";
     display: table
   }
 
   &:after {
-    clear: both
+    clear: both;
   }
 
-  &--spaceGrey {
+  > * + * {
+    margin-top: 10 * $font-size-base;
+  }
+
+  &--padTop {
+    padding-top: 10 * $font-size-base;
+  }
+
+  &--padBottom {
+    padding-bottom: 10 * $font-size-base;
+  }
+
+  &--light {
+    background-color: $grey;
+    color: $space-grey;
+  }
+
+  &--dark {
     background-color: $space-grey;
     color: white;
+  }
+
+  footer {
+    margin-top: 12 * $font-size-base;
   }
 }
