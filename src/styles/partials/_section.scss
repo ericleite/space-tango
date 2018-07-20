@@ -22,14 +22,9 @@
     padding-bottom: 10 * $font-size-base;
   }
 
-  &--light {
-    background-color: $grey;
-    color: $space-grey;
-  }
-
-  &--dark {
-    background-color: $space-grey;
-    color: white;
+  &--red {
+    background-color: $fire-engine-red;
+    color: $grey;
   }
 
   footer {

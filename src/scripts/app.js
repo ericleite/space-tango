@@ -1,10 +1,33 @@
 'use strict';
 
 // Libs
-const ScrollMagic = require('scrollmagic');
+import CSSPlugin from 'gsap/CSSPlugin';
+import EasePack from 'gsap/EasePack';
+import TweenLite from 'gsap/TweenLite';
+import ScrollMagic from 'scrollmagic';
+import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
 
 // Utils
-const { findAncestor } = require('utils');
+import { findAncestor } from 'utils';
+import { colors } from 'constants';
+
+// Local constants
+// Styles
+const darkBodyStyle = {
+  backgroundColor: colors.spaceGrey,
+  color: colors.white
+};
+const lightBodyStyle = {
+  backgroundColor: colors.grey,
+  color: colors.spaceGrey
+};
+const redBodyStyle = {
+  backgroundColor: colors.fireEngineRed,
+  color: colors.white
+};
+
+// Tweens
+const tweenBodyFromDarkToLight = TweenLite.fromTo(document.body, 1, darkBodyStyle, lightBodyStyle);
 
 /*
 * App class is the base controller for the app.
@@ -15,6 +38,7 @@ class App {
     this.controller = new ScrollMagic.Controller();
     this.scenes = {};
     this.figureVideos = [];
+    this.tweens = {};
 
     // Event handlers
     this.handleMouseenterVideo = this.handleMouseenterFigureVideo.bind(this);
@@ -33,8 +57,11 @@ class App {
   * Creates scroll-based animations for each section.
   */
   buildScenes() {
-    // Hero section
     const heroTrigger = '#hero';
+    const featuredWorkHeaderTrigger = '#featuredWorkHeader';
+    const cubeSectionTrigger = '#cubeSection';
+
+    // Hero section
     this.scenes.hero = [
       new ScrollMagic.Scene({
         triggerElement: heroTrigger,
@@ -50,7 +77,6 @@ class App {
     this.controller.addScene(this.scenes.hero);
 
     // Featured Work header section
-    const featuredWorkHeaderTrigger = '#featuredWorkHeader';
     this.scenes.featuredWorkHeader = [
       new ScrollMagic.Scene({
         triggerElement: featuredWorkHeaderTrigger,
@@ -64,6 +90,16 @@ class App {
       }).setClassToggle('#featuredWorkHeaderFigure', 'active')
     ];
     this.controller.addScene(this.scenes.featuredWorkHeader);
+
+    // Cube section
+    this.scenes.cubeSection = [
+      new ScrollMagic.Scene({
+        triggerElement: cubeSectionTrigger,
+        triggerHook: 0.75,
+        duration: '50%'
+      }).setTween(tweenBodyFromDarkToLight)
+    ];
+    this.controller.addScene(this.scenes.cubeSection);
   }
 
   /*

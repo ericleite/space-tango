@@ -7,6 +7,8 @@ html {
 }
 
 body {
+  background-color: $space-grey;
+  color: white;
   font-family: $font-family-base;
   font-size: $font-size-base;
   font-weight: $font-weight-base;
@@ -35,6 +37,10 @@ p {
   + p {
     margin-top: 1em;
   }
+}
+
+small {
+  font-size: $font-size-small;
 }
 
 figure {

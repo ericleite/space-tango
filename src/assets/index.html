@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <div class="Section Section--dark Section--padBottom">
+    <div class="Section Section--padBottom">
       <nav class="Nav">
         <div class="Container FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
           <img class="Nav-logo u-responsive" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
@@ -34,7 +34,7 @@
           <h3 id="heroHeadline" class="Hero-headline-title u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery and innovation. By exploring it with industries of all kinds, we can improve life on Earth.</h3>
         </div>
         <div class="Hero-image FlexLayout FlexLayout--mainCentered">
-          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe.png" srcset="images/globe.png, images/globe.png 1.5x, images/globe.png 2x" alt"Rotating globe animation">
+          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe.png" srcset="images/globe.png, images/globe.png 1.5x, images/globe.png 2x" alt="Rotating globe animation">
         </div>
       </div>
       <article class="FeaturedWork">
@@ -45,7 +45,7 @@
               <p class="FeaturedWork-header-caption-description">Docked on the International Space Station, our payloads yield results for a diverse range of industries, for life science and physical science research  to manufacturing and beyond. Each project, in some way, shares a common goal to improve life on Earth. Here are some of our featured projects.</p>
             </div>
             <div class="FeaturedWork-header-figure">
-              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt"International Space Station">
+              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt="International Space Station">
             </div>
           </header>
           <figure class="FeaturedWork-figure featuredWorkFigure">
@@ -126,7 +126,7 @@
         </div>
       </article>
     </div>
-    <div class="Section Section--light Section--padTop Section--padBottom">
+    <div id="cubeSection" class="Section Section--padTop Section--padBottom">
       <section>
         <div class="Container">
           <h2 class="u-marginBottom">CubeLab</h2>
@@ -156,9 +156,29 @@
         </div>
       </section>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/plugins/CSSPlugin.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/easing/EasePack.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.0.1/TweenLite.min.js"></script>
+    <footer id="footerSection" class="Section Section--padTop Section--padBottom Section--red">
+      <div class="Container">
+        <div class="FlexLayout FlexLayout--mainSpaceEvenly">
+          <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
+            <h3 class="u-marginBottom4">Microgravity<br />Manufacturing<br />and Research</h3>
+            <small>Copyright 2018 Space Tango</small>
+          </div>
+          <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
+            <div>
+              <h3>(650) 837-0332</h3>
+              <h3 class="u-marginBottom">info@spacetango.com</h3>
+              <ul class="FlexLayout FlexLayout--space1">
+                <li><a href="#" class="Link Link--light">Instagram</a></li>
+                <li><a href="#" class="Link Link--light">Facebook</a></li>
+                <li><a href="#" class="Link Link--light">LinkedIn</a></li>
+                <li><a href="#" class="Link Link--light">Youtube</a></li>
+              </ul>
+            </div>
+            <p>333 E Short St. Lexington, KY 40507</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="vendor.js"></script>
     <script src="main.js"></script>
   </body>

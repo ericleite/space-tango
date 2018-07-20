@@ -17,6 +17,10 @@
     justify-content: space-between;
   }
 
+  &--mainSpaceEvenly {
+    justify-content: space-evenly;
+  }
+
   &--equalWidth {
     > * {
       flex-basis: 100%;

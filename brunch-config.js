@@ -29,7 +29,11 @@ exports.modules = {
 exports.npm = {
   styles: {
     'normalize.css': ['normalize.css']
-  }
+  },
+  globals: {
+    gsap: 'gsap'
+  },
+  compilers: ['babel-brunch']
 }
 
 exports.paths = {
