@@ -59,13 +59,13 @@ class App {
     // Trigger constants
     const heroTrigger = '#hero';
     const featuredWorkHeaderTrigger = '#featuredWorkHeader';
-    const cubeSectionTrigger = '#cubeSection';
+    const lightSectionTrigger = '#lightSection';
 
     // Tween constants
     const tweenBodyFromDarkToLight = TweenLite.fromTo(document.body, 1, darkBodyStyle, lightBodyStyle);
     const cubeSliderTimeline = new TimelineLite();
-    cubeSliderTimeline.fromTo('#slide2', 1, { top: '100%' }, { top: 0 });
-    cubeSliderTimeline.fromTo('#slide3', 1, { top: '100%' }, { top: 0 });
+    cubeSliderTimeline.fromTo('#slide1', 1, { y: 0 }, { y: '-100%' });
+    cubeSliderTimeline.fromTo('#slide2', 1, { y: 0 }, { y: '-100%' });
 
     // Hero section
     this.scenes.hero = [
@@ -106,24 +106,24 @@ class App {
     this.controller.addScene(this.scenes.featuredWorkHeader);
 
     // Cube section
-    this.scenes.cubeSection = [
+    this.scenes.lightSection = [
       // Background color transition
       new ScrollMagic.Scene({
-        triggerElement: cubeSectionTrigger,
-        triggerHook: 0.8,
-        duration: '60%'
+        triggerElement: lightSectionTrigger,
+        triggerHook: 'onEnter',
+        duration: 320
       })
         .setTween(tweenBodyFromDarkToLight),
       // Vertical cube slider
       new ScrollMagic.Scene({
-        triggerElement: cubeSectionTrigger,
-        triggerHook: 0,
+        triggerElement: lightSectionTrigger,
+        triggerHook: 'onLeave',
         duration: '200%'
       })
-        .setPin(cubeSectionTrigger)
+        .setPin(lightSectionTrigger)
         .setTween(cubeSliderTimeline)
     ];
-    this.controller.addScene(this.scenes.cubeSection);
+    this.controller.addScene(this.scenes.lightSection);
   }
 
   /*

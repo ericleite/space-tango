@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="main.css">
   </head>
   <body>
-    <div class="Section Section--padBottom">
+    <div id="darkSection" class="Section Section--padBottom">
       <nav class="Nav">
         <div class="Container FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
           <img class="Nav-logo u-responsive" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
@@ -121,46 +121,52 @@
             </div>
           </figure>
           <footer class="FeaturedWork-footer">
-            <a class="Link Link--cta" href="#">Lean more about research</a>
+            <a class="Link Link--cta" href="#">Learn more about research</a>
           </footer>
         </div>
       </article>
     </div>
-    <div id="cubeSection" class="Section Section--padTop Section--padBottom">
-      <section>
+    <div id="lightSection" class="Section Section--padTop Cube">
+      <section class="Cube-section">
         <div class="Container">
-          <h2 class="u-marginBottom">CubeLab</h2>
-          <div class="Cube-slider">
-            <div id="slide1" class="Cube-slider-slide FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-              <h3>CubeLabs are an autonomous microgravity research and manufacturing standard developed by Space Tango for modular, scalable and reconfigurable use.</h3>
-              <div>
-                <video class="u-responsive" autoplay loop muted playsinline>
-                  <source src="videos/cube-1.mp4" type="video/mp4" />
-                  Sorry, your browser doesn't support embedded videos.
-                </video>
+          <h2 class="u-marginBottom">CubeLab™</h2>
+          <div id="cubeSlider" class="Cube-slider">
+            <div id="slide3" class="Cube-slider-slide">
+              <div class="Cube-slider-slide-contents FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+                <h3>Three</h3>
+                <div>
+                  <video class="u-responsive" autoplay loop muted playsinline>
+                    <source src="videos/cube-3.mp4" type="video/mp4" />
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
               </div>
             </div>
-            <div id="slide2" class="Cube-slider-slide FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-              <h3>This is another slide with information on the second cube animation.</h3>
-              <div>
-                <video class="u-responsive" autoplay loop muted playsinline>
-                  <source src="videos/cube-2.mp4" type="video/mp4" />
-                  Sorry, your browser doesn't support embedded videos.
-                </video>
+            <div id="slide2" class="Cube-slider-slide">
+              <div class="Cube-slider-slide-contents FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+                <h3>Two</h3>
+                <div>
+                  <video class="u-responsive" autoplay loop muted playsinline>
+                    <source src="videos/cube-2.mp4" type="video/mp4" />
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
               </div>
             </div>
-            <div id="slide3" class="Cube-slider-slide FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-              <h3>This is another slide with information on the second cube animation.</h3>
-              <div>
-                <video class="u-responsive" autoplay loop muted playsinline>
-                  <source src="videos/cube-3.mp4" type="video/mp4" />
-                  Sorry, your browser doesn't support embedded videos.
-                </video>
+            <div id="slide1" class="Cube-slider-slide">
+              <div class="Cube-slider-slide-contents FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+                <h3>One</h3>
+                <div>
+                  <video class="u-responsive" autoplay loop muted playsinline>
+                    <source src="videos/cube-1.mp4" type="video/mp4" />
+                    Sorry, your browser doesn't support embedded videos.
+                  </video>
+                </div>
               </div>
             </div>
           </div>
           <footer>
-            <a class="Link Link--cta" href="#">Lean more about research</a>
+            <a class="Link Link--cta" href="#">Learn more about research</a>
           </footer>
         </div>
       </section>
