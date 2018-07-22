@@ -12,6 +12,7 @@ import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
 // Utils
 import { findAncestor } from 'utils';
 import { colors } from 'constants';
+import { log } from 'util';
 
 // Local constants
 const darkBodyStyle = {
@@ -26,6 +27,11 @@ const redBodyStyle = {
   backgroundColor: colors.fireEngineRed,
   color: colors.white
 };
+
+// Trigger constants
+const heroTrigger = '#hero';
+const featuredWorkHeaderTrigger = '#featuredWorkHeader';
+const lightSectionTrigger = '#lightSection';
 
 /*
 * App class is the base controller for the app.
@@ -47,7 +53,8 @@ class App {
   * Used to initialize the application. Only call this once the DOM is ready.
   */
   init() {
-    this.buildScenes();
+    this.buildStaticScenes();
+    this.buildCubeSliderScenes();
     this.forceStartAutoplayVideos();
     this.registerFigureVideos();
   }
@@ -55,18 +62,7 @@ class App {
   /*
   * Creates scroll-based animations for each section.
   */
-  buildScenes() {
-    // Trigger constants
-    const heroTrigger = '#hero';
-    const featuredWorkHeaderTrigger = '#featuredWorkHeader';
-    const lightSectionTrigger = '#lightSection';
-
-    // Tween constants
-    const tweenBodyFromDarkToLight = TweenLite.fromTo(document.body, 1, darkBodyStyle, lightBodyStyle);
-    const cubeSliderTimeline = new TimelineLite();
-    cubeSliderTimeline.fromTo('#slide1', 1, { y: 0 }, { y: '-100%' });
-    cubeSliderTimeline.fromTo('#slide2', 1, { y: 0 }, { y: '-100%' });
-
+  buildStaticScenes() {
     // Hero section
     this.scenes.hero = [
       // Caption fade/rise-in
@@ -105,25 +101,39 @@ class App {
     ];
     this.controller.addScene(this.scenes.featuredWorkHeader);
 
-    // Cube section
-    this.scenes.lightSection = [
-      // Background color transition
-      new ScrollMagic.Scene({
-        triggerElement: lightSectionTrigger,
-        triggerHook: 'onEnter',
-        duration: 320
-      })
-        .setTween(tweenBodyFromDarkToLight),
-      // Vertical cube slider
-      new ScrollMagic.Scene({
-        triggerElement: lightSectionTrigger,
-        triggerHook: 'onLeave',
-        duration: '200%'
-      })
-        .setPin(lightSectionTrigger)
-        .setTween(cubeSliderTimeline)
-    ];
-    this.controller.addScene(this.scenes.lightSection);
+    // Dark to light transition
+    const tweenBodyFromDarkToLight = TweenLite.fromTo(document.body, 1, darkBodyStyle, lightBodyStyle);
+    this.scenes.darkToLight = new ScrollMagic.Scene({
+      triggerElement: lightSectionTrigger,
+      triggerHook: 'onEnter',
+      duration: 320
+    }).setTween(tweenBodyFromDarkToLight);
+    this.controller.addScene(this.scenes.darkToLight);
+  }
+
+  buildCubeSliderScenes() {
+    const timeline = new TimelineLite();
+    const slides = document.querySelectorAll('#cubeSlider > div');
+    const slideCount = slides.length;
+
+    // Add slides to the timeline.
+    let slideIndex = slideCount - 1;
+    while (slideIndex >= 0) {
+      if (slideIndex > 0) {
+        timeline.fromTo(slides[slideIndex], 1, { y: 0 }, { y: '-100%' });
+      }
+      slideIndex--;
+    }
+
+    this.scenes.cubeSlider = new ScrollMagic.Scene({
+      triggerElement: lightSectionTrigger,
+      triggerHook: 'onLeave',
+      duration: `${slideCount - 1}00%`
+    })
+      .setPin(lightSectionTrigger)
+      .setTween(timeline);
+
+    this.controller.addScene(this.scenes.cubeSlider);
   }
 
   /*
