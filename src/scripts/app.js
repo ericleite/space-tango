@@ -7,14 +7,13 @@ import TweenLite from 'gsap/TweenLite';
 import TimelineLite from 'gsap/TimelineLite';
 import ScrollMagic from 'scrollmagic';
 import 'scrollmagic/scrollmagic/uncompressed/plugins/animation.gsap';
-// import 'scrollmagic/scrollmagic/uncompressed/plugins/debug.addIndicators';
 
 // Utils
-import { findAncestor } from 'utils';
+import { checkForElement, findAncestor } from 'utils';
 import { colors } from 'constants';
-import { log } from 'util';
 
 // Local constants
+// Styles
 const darkBodyStyle = {
   backgroundColor: colors.spaceGrey,
   color: colors.white
@@ -23,15 +22,18 @@ const lightBodyStyle = {
   backgroundColor: colors.grey,
   color: colors.spaceGrey
 };
-const redBodyStyle = {
-  backgroundColor: colors.fireEngineRed,
-  color: colors.white
-};
-
+// Classes
+const activeClass = 'active';
+const lightSectionSpacerClass = 'lightSectionSpacer';
 // Trigger constants
 const heroTrigger = '#hero';
 const featuredWorkHeaderTrigger = '#featuredWorkHeader';
 const lightSectionTrigger = '#lightSection';
+// Selectors
+const cubeSliderSelector = '#cubeSlider';
+const cubeSliderSlideContentSelector = '.Cube-slider-slide-content';
+const cubeSliderTrackSelector = `${cubeSliderSelector} .Cube-slider-track`;
+const lightSectionSpacerSelector = `.${lightSectionSpacerClass}`;
 
 /*
 * App class is the base controller for the app.
@@ -42,11 +44,11 @@ class App {
     this.controller = new ScrollMagic.Controller();
     this.scenes = {};
     this.figureVideos = [];
-    this.tweens = {};
 
     // Event handlers
     this.handleMouseenterVideo = this.handleMouseenterFigureVideo.bind(this);
     this.handleMouseleaveVideo = this.handleMouseleaveFigureVideo.bind(this);
+    this.handleEnterCubeSliderScene = this.handleEnterCubeSliderScene.bind(this);
   }
 
   /*
@@ -71,14 +73,14 @@ class App {
         reverse: false,
         triggerHook: 1
       })
-        .setClassToggle('#heroHeadline', 'active'),
+        .setClassToggle('#heroHeadline', activeClass),
       // Globe fade-in
       new ScrollMagic.Scene({
         triggerElement: heroTrigger,
         reverse: false,
         triggerHook: 1
       })
-        .setClassToggle('#heroImage', 'active')
+        .setClassToggle('#heroImage', activeClass)
     ];
     this.controller.addScene(this.scenes.hero);
 
@@ -90,14 +92,14 @@ class App {
         reverse: false,
         triggerHook: 0.8
       })
-        .setClassToggle('#featuredWorkHeaderCaption', 'active'),
+        .setClassToggle('#featuredWorkHeaderCaption', activeClass),
       // ISS image fade/swoop-in
       new ScrollMagic.Scene({
         triggerElement: featuredWorkHeaderTrigger,
         reverse: false,
         triggerHook: 0.8
       })
-        .setClassToggle('#featuredWorkHeaderFigure', 'active')
+        .setClassToggle('#featuredWorkHeaderFigure', activeClass)
     ];
     this.controller.addScene(this.scenes.featuredWorkHeader);
 
@@ -112,34 +114,38 @@ class App {
   }
 
   buildCubeSliderScenes() {
-    const timeline = new TimelineLite();
-    const slides = document.querySelectorAll('#cubeSlider > div');
+    const slides = document.querySelectorAll('#cubeSlider .Cube-slider-slide');
     const slideCount = slides.length;
-
-    // Add slides to the timeline.
-    let slideIndex = slideCount - 1;
-    while (slideIndex >= 0) {
-      if (slideIndex > 0) {
-        timeline.fromTo(slides[slideIndex], 1, { y: 0 }, { y: '-100%' });
-      }
-      slideIndex--;
-    }
-
-    this.scenes.cubeSlider = new ScrollMagic.Scene({
+    const sliderSceneOptions = {
       triggerElement: lightSectionTrigger,
       triggerHook: 'onLeave',
-      duration: `${slideCount - 1}00%`
-    })
-      .setPin(lightSectionTrigger)
-      .setTween(timeline);
+      duration: `${slideCount}00%`
+    };
+    const timeline = new TimelineLite();
 
+    // Add slides to the timeline.
+    let slideIndex = 0;
+    while (slideIndex < slideCount - 1) {
+      const toVars = {
+        top: `-${(slideIndex + 1) * 100}%`
+      };
+      timeline.to(cubeSliderTrackSelector, 1, toVars);
+      slideIndex++;
+    }
+
+    // Setup slider container scene.
+    this.scenes.cubeSlider = new ScrollMagic.Scene(sliderSceneOptions)
+      .setPin(lightSectionTrigger, { spacerClass: lightSectionSpacerClass })
+      .setTween(timeline)
+      .on('enter', this.handleEnterCubeSliderScene)
+      .on('leave', e => { this.unpinSlides(slides); });
     this.controller.addScene(this.scenes.cubeSlider);
   }
 
   /*
   * Forces all autoplay videos to start.
   */
- forceStartAutoplayVideos() {
+  forceStartAutoplayVideos() {
     document.querySelectorAll('video').forEach(video => {
       if (video.autoplay) {
         video.play();
@@ -158,6 +164,16 @@ class App {
     });
   }
 
+  // Event handlers
+
+  handleEnterCubeSliderScene(e) {
+    if (this.scenes.cubeSlider.state() === 'DURING') {
+      checkForElement(lightSectionSpacerSelector, this.pinSlides);
+    } else {
+      this.pinSlides();
+    }
+  }
+
   /*
   * Handles mouse enter event on a <figure> <video>.
   * @param {Event} e - Mouseenter event object.
@@ -172,6 +188,47 @@ class App {
   */
   handleMouseleaveFigureVideo(e) {
     findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.remove('secondary');
+  }
+
+  // Helpers
+
+  /*
+  * Pins slides in place.
+  * @param {NodeList} slides - List of slide nodes
+  */
+  pinSlides(slides) {
+    if (!slides) {
+      slides = document.querySelectorAll('#cubeSlider .Cube-slider-slide');
+    }
+    if (slides.length > 0) {
+      let slider = document.querySelector(cubeSliderSelector);
+      const sliderDimentions = slider.getBoundingClientRect();
+      Array.prototype.forEach.call(slides, slide => {
+        const slideContent = slide.querySelector(cubeSliderSlideContentSelector);
+        slideContent.classList.add(activeClass);
+        slideContent.style.top = `${sliderDimentions.top}px`;
+        slideContent.style.left = `${sliderDimentions.left}px`;
+        slideContent.style.width = `${sliderDimentions.width}px`;
+        slideContent.style.height = `${sliderDimentions.height}px`;
+      });
+    }
+  }
+
+  /*
+  * Unpins slides.
+  * @param {NodeList} slides - List of slide nodes
+  */
+  unpinSlides(slides) {
+    if (slides.length > 0) {
+      Array.prototype.forEach.call(slides, slide => {
+        const slideContent = slide.querySelector(cubeSliderSlideContentSelector);
+        slideContent.classList.remove(activeClass);
+        slideContent.style.top = '';
+        slideContent.style.left = '';
+        slideContent.style.width = '';
+        slideContent.style.height = '';
+      });
+    }
   }
 }
 

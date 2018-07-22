@@ -2,4 +2,6 @@
 
 const App = require('app');
 
-App.init();
+document.addEventListener("DOMContentLoaded", () => {
+  App.init();
+});
