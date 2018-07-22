@@ -14,18 +14,15 @@
 
     &-figure {
       position: absolute;
-      right: -15%;
-      top: -20%;
+      right: -19%;
+      top: -22%;
       width: 65%;
     }
   }
 
   &-figure {
     $figure-class: &;
-    width: 80%;
     margin-top: 10 * $font-size-base;
-    margin-right: auto;
-    margin-left: auto;
     position: relative;
 
     &-caption {
@@ -74,5 +71,9 @@
         margin-right: 13 * $font-size-base;
       }
     }
+  }
+
+  footer {
+    margin-top: 12 * $font-size-base;
   }
 }

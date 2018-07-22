@@ -1,0 +1,17 @@
+.Clients {
+  margin-top: $font-size-base * 5;
+
+  &-list {
+    &-item {
+      flex: 0 0 auto;
+      margin-bottom: $font-size-base * 2;
+
+      > img {
+        max-height: $font-size-base * 4;
+        max-width: $font-size-base * 10;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+}

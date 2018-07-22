@@ -1,9 +1,17 @@
 .Container {
+  $container-width-base: $font-size-base * 80;
   width: 100%;
-  max-width: $font-size-base * 80;
+  max-width: $container-width-base;
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  padding-left: 2 * $font-size-base;
-  padding-right: 2 * $font-size-base;
+
+  &--padded {
+    padding-left: 2 * $font-size-base;
+    padding-right: 2 * $font-size-base;
+  }
+
+  &--inner {
+    max-width: $container-width-base * 0.8;
+  }
 }
