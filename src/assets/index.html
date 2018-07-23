@@ -11,7 +11,9 @@
     <div id="darkSection" class="Section Section--padBottom">
       <nav class="Nav">
         <div class="Container FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
-          <img class="Nav-logo u-responsive" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
+          <div>
+            <img class="Nav-logo u-responsive" src="images/logo@1x.png" srcset="images/logo@1x.png, images/logo@2x.png 2x" alt="Space Tango logo">
+          </div>
           <div class="Nav-links FlexLayout FlexLayout--column FlexLayout--mainCentered">
             <ul class="Nav-subMenu FlexLayout FlexLayout--mainEnd FlexLayout--crossCentered FlexLayout--spaceHalf">
               <li><a class="Link Link--light" href="#">Press</a></li>
@@ -34,7 +36,7 @@
           <h3 id="heroHeadline" class="Hero-headline-title u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery and innovation. By exploring it with industries of all kinds, we can improve life on Earth.</h3>
         </div>
         <div class="Hero-image FlexLayout FlexLayout--mainCentered">
-          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe.png" srcset="images/globe.png, images/globe.png 1.5x, images/globe.png 2x" alt="Rotating globe animation">
+          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe@1x.png" srcset="images/globe@1x.png, images/globe@1.5x.png 1.5x, images/globe@2x.png 2x" alt="Rotating globe animation">
         </div>
       </div>
       <article class="FeaturedWork">
@@ -45,7 +47,7 @@
               <p class="FeaturedWork-header-caption-description">Docked on the International Space Station, our payloads yield results for a diverse range of industries, for life science and physical science research  to manufacturing and beyond. Each project, in some way, shares a common goal to improve life on Earth. Here are some of our featured projects.</p>
             </div>
             <div class="FeaturedWork-header-figure">
-              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt="International Space Station">
+              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated@1x.png" srcset="images/iss-isolated@1x.png, images/iss-isolated@1.5x.png 1.5x, images/iss-isolated@2x.png 2x" alt="International Space Station">
             </div>
           </header>
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
@@ -145,7 +147,7 @@
               </div>
               <div class="Cube-slider-slide">
                 <div class="Cube-slider-slide-content FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-                  <h3>This is another slide with information on the second cube animation.</h3>
+                  <h3>CubeLab modules scale in volume with added complexity. A 1U is a 4” cube, but modules can currently scale up to 6U’s.</h3>
                   <div>
                     <video class="u-responsive" autoplay loop muted playsinline>
                       <source src="videos/cube-2.mp4" type="video/mp4" />
@@ -156,10 +158,22 @@
               </div>
               <div class="Cube-slider-slide">
                 <div class="Cube-slider-slide-content FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-                  <h3>CubeLabs are an autonomous microgravity research and manufacturing standard developed by Space Tango for modular, scalable and reconfigurable use.</h3>
+                  <h3>All environmental, sensing and control logistics are included within these units.</h3>
                   <div>
                     <video class="u-responsive" autoplay loop muted playsinline>
                       <source src="videos/cube-3.mp4" type="video/mp4" />
+                      Sorry, your browser doesn't support embedded videos.
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div class="Cube-slider-slide">
+                <div class="Cube-slider-slide-content FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+                  <h3>CubeLabs are reused between flights allowing a quick hardware turnaround
+                      and high experimental throughput.</h3>
+                  <div>
+                    <video class="u-responsive" autoplay loop muted playsinline>
+                      <source src="videos/cube-1.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   </div>
@@ -206,10 +220,12 @@
     <footer id="footerSection" class="Section Section--padTop Section--padBottom Section--red">
       <div class="Container">
         <div class="FlexLayout FlexLayout--mainSpaceEvenly">
+          <div class="FlexLayout--spacer1"></div>
           <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
             <h3 class="u-marginBottom4">Microgravity<br />Manufacturing<br />and Research</h3>
-            <small>Copyright 2018 Space Tango</small>
+            <p><small>Copyright 2018 Space Tango</small></p>
           </div>
+          <div class="FlexLayout--spacer1"></div>
           <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
             <div>
               <h3>(650) 837-0332</h3>
@@ -223,6 +239,7 @@
             </div>
             <p>333 E Short St. Lexington, KY 40507</p>
           </div>
+          <div class="FlexLayout--spacer1"></div>
         </div>
       </div>
     </footer>

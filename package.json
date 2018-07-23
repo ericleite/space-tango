@@ -1,28 +1,32 @@
 {
   "name": "space-tango",
   "version": "1.0.0",
+  "author": "Eric Leite",
   "description": "",
   "private": true,
-  "engines": {
-    "node": "10.x"
-  },
   "config": {
     "bin": "./node_modules/.bin"
+  },
+  "engines": {
+    "node": "10.x"
   },
   "scripts": {
     "start": "brunch watch --server",
     "build": "brunch build --production",
     "deploy": "npm run build && gh-pages -d public"
   },
-  "author": "Eric Leite",
   "devDependencies": {
     "auto-reload-brunch": "^2.7.1",
+    "autoprefixer": "^9.0.1",
     "babel-brunch": "^6.0.6",
     "babel-preset-latest": "^6.24.1",
     "brunch": "^2.10.12",
     "clean-css-brunch": "^2.10.0",
+    "cssnano": "^4.0.3",
     "gh-pages": "^1.2.0",
     "javascript-brunch": "^2.10.0",
+    "postcss-brunch": "^2.1.0",
+    "postcss-scss": "^2.0.0",
     "sass-brunch": "^2.10.4",
     "uglify-js-brunch": "^2.10.0"
   },

@@ -18,7 +18,9 @@
   }
 
   &--mainSpaceEvenly {
-    justify-content: space-evenly;
+    > .FlexLayout--spacer1 {
+      flex: 1 1 auto;
+    }
   }
 
   &--equalWidth {

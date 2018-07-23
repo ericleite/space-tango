@@ -119,7 +119,7 @@ class App {
     const sliderSceneOptions = {
       triggerElement: lightSectionTrigger,
       triggerHook: 'onLeave',
-      duration: `${slideCount}00%`
+      duration: `${slideCount - 1}00%`
     };
     const timeline = new TimelineLite();
 
@@ -146,7 +146,8 @@ class App {
   * Forces all autoplay videos to start.
   */
   forceStartAutoplayVideos() {
-    document.querySelectorAll('video').forEach(video => {
+    const videos = document.querySelectorAll('video');
+    Array.prototype.forEach.call(videos, video => {
       if (video.autoplay) {
         video.play();
       }

@@ -43,6 +43,21 @@ exports.paths = {
 exports.plugins = {
   babel: {
     presets: ['latest']
+  },
+  postcss: {
+    processors: [
+      require('autoprefixer')([
+        "> 5%",
+        "IE 9",
+        "IE 11"
+      ]),
+      require('cssnano')({
+        preset: 'default'
+      })
+    ],
+    options: {
+      parser: require('postcss-scss')
+    }
   }
 };
 
