@@ -85,5 +85,17 @@
         margin-right: 0;
       }
     }
+
+    &.FlexLayout--column {
+      > * {
+        margin-right: unset;
+        margin-bottom: 4 * $font-size-base;
+
+        &:last-child {
+          margin-right: unset;
+          margin-bottom: 0;
+        }
+      }
+    }
   }
 }

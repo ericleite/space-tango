@@ -1,11 +1,26 @@
 .FeaturedWork {
   &-header {
+    display: flex;
+    flex-direction: column-reverse;
     position: relative;
 
+    @media (min-width: $bp-desktop-s) {
+      flex-direction: row;
+    }
+
     &-caption {
-      width: 40%;
-      flex-shrink: 0;
-      margin-right: 10%;
+      $caption-spacing: 5 * $font-size-base;
+      margin-top: $caption-spacing * $mobile-reduction-factor;
+
+      @media (min-width: $bp-tablet) {
+        margin-top: $caption-spacing;
+      }
+
+      @media (min-width: $bp-desktop-s) {
+        width: 40%;
+        flex-shrink: 0;
+        margin-right: 10%;
+      }
 
       &-description {
         color: $grey;
@@ -13,67 +28,134 @@
     }
 
     &-figure {
-      position: absolute;
-      right: -19%;
-      top: -22%;
-      width: 65%;
+      @media (min-width: $bp-mobile-l) {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+
+      @media (min-width: $bp-tablet) {
+        padding-left: 15%;
+        padding-right: 15%;
+      }
+
+      @media (min-width: $bp-desktop-s) {
+        position: absolute;
+        right: -19%;
+        top: 50%;
+        width: 65%;
+        padding-left: 0;
+        padding-right: 0;
+        transform: translateY(-50%);
+        transition-delay: 2 * $animation-duration-default;
+      }
+
+      @media (min-width: $bp-desktop-m) {
+        right: -19%;
+      }
     }
   }
 
   &-figure {
+    $figure-spacing: 10 * $font-size-base;
     $figure-class: &;
-    margin-top: 10 * $font-size-base;
+    margin-top: $figure-spacing * $mobile-reduction-factor;
     position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+    @media (min-width: $bp-tablet) {
+      display: block;
+      flex-direction: row;
+      margin-top: $figure-spacing;
+    }
 
     &-caption {
       $border: 3px solid white;
-      $padding: (2 * $font-size-base) (1.6875 * $font-size-base);
-      position: absolute;
-      min-height: 25 * $font-size-base;
-      width: 25 * $font-size-base;
+      $padding-top-bottom: 2 * $font-size-base;
+      $padding-left-right: 1.6875 * $font-size-base;
+      $width: 25 * $font-size-base;
       border: $border;
-      z-index: 2;
-      transform-origin: top left;
-      @include transition(0.5);
+      width: 100%;
+      min-height: $width * $base-reduction-factor;
+      margin-top: $padding-top-bottom * $mobile-reduction-factor;
+      margin-left: auto;
+      margin-right: auto;
 
-      #{$figure-class}:nth-child(odd) & {
-        transform-origin: top right;
-        right: 0;
+      @media (min-width: $bp-mobile-l) {
+        width: 80%;
       }
 
-      &.secondary {
-        transform: scale(0.9, 0.9);
-        z-index: 0;
+      @media (min-width: $bp-tablet) {
+        position: absolute;
+        width: $width * $mobile-reduction-factor;
+        min-height: $width * $mobile-reduction-factor;
+        margin-top: 0;
+        z-index: 2;
+        transform-origin: top left;
+        @include transition(0.5);
+
+        #{$figure-class}:nth-child(odd) & {
+          transform-origin: top right;
+          right: 0;
+        }
+
+        &.secondary {
+          transform: scale(0.9, 0.9);
+          z-index: 0;
+        }
+      }
+
+      @media (min-width: $bp-desktop-s) {
+        min-height: $width;
+        width: $width;
       }
 
       header {
         border-bottom: $border;
-        padding: $padding;
+        padding: ($padding-top-bottom * $mobile-reduction-factor) ($padding-left-right * $mobile-reduction-factor);
         font-family: $font-family-monospace-bold;
         text-transform: uppercase;
+
+        @media (min-width: $bp-desktop-s) {
+          padding: $padding-top-bottom $padding-left-right;
+        }
       }
 
       p {
-        padding: $padding;
+        padding: ($padding-top-bottom * $mobile-reduction-factor) ($padding-left-right * $mobile-reduction-factor);
+
+        @media (min-width: $bp-desktop-s) {
+          padding: $padding-top-bottom $padding-left-right;
+        }
       }
     }
 
     &-video {
-      max-width: 45 * $font-size-base;
-      padding-top: 4 * $font-size-base;
-      margin-left: 13 * $font-size-base;
-      margin-right: auto;
-      position: relative;
-      z-index: 1;
+      width: 100%;
 
-      #{$figure-class}:nth-child(odd) & {
-        margin-left: auto;
-        margin-right: 13 * $font-size-base;
+      @media (min-width: $bp-tablet) {
+        width: auto;
+        max-width: 45 * $font-size-base;
+        padding-top: 4 * $font-size-base;
+        margin-left: 13 * $font-size-base;
+        margin-right: auto;
+        position: relative;
+        z-index: 1;
+
+        #{$figure-class}:nth-child(odd) & {
+          margin-left: auto;
+          margin-right: 13 * $font-size-base;
+        }
       }
     }
   }
 
   footer {
-    margin-top: 12 * $font-size-base;
+    $footer-spacing: 10 * $font-size-base;
+    margin-top: $footer-spacing * $mobile-reduction-factor;
+
+    @media (min-width: $bp-tablet) {
+      margin-top: $footer-spacing;
+    }
   }
 }

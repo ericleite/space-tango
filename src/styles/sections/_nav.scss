@@ -7,7 +7,12 @@
   }
 
   &-links {
-    flex-shrink: 0;
+    display: none;
+
+    @media (min-width: $bp-desktop-s) {
+      display: flex;
+      flex-shrink: 0;
+    }
   }
 
   &-subMenu {

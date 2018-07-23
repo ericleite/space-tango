@@ -23,9 +23,13 @@
 
   &--cta {
     font-family: $font-family-monospace-bold;
-    font-size: $font-size-base;
+    font-size: $font-size-base * $mobile-reduction-factor;
     color: $fire-engine-red;
     text-transform: uppercase;
+
+    @media (min-width: $bp-tablet) {
+      font-size: $font-size-base;
+    }
 
     &:hover {
       color: $fire-engine-red;

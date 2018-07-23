@@ -1,4 +1,6 @@
 .Section {
+  $section-spacing: 10 * $font-size-base;
+
   overflow: hidden;
 
   &:after, &:before {
@@ -11,15 +13,27 @@
   }
 
   > * + * {
-    margin-top: 10 * $font-size-base;
+    margin-top: $section-spacing * $mobile-reduction-factor;
+
+    @media (min-width: $bp-desktop-s) {
+      margin-top: $section-spacing;
+    }
   }
 
   &--padTop {
-    padding-top: 10 * $font-size-base;
+    padding-top: $section-spacing * $mobile-reduction-factor;
+
+    @media (min-width: $bp-tablet) {
+      padding-top: $section-spacing;
+    }
   }
 
   &--padBottom {
-    padding-bottom: 10 * $font-size-base;
+    padding-bottom: $section-spacing * $mobile-reduction-factor;
+
+    @media (min-width: $bp-tablet) {
+      padding-bottom: $section-spacing;
+    }
   }
 
   &--spaceGreyStatic {
@@ -42,7 +56,14 @@
   }
 
   footer {
-    margin-top: 5 * $font-size-base;
-    text-align: right;
+    $footer-spacing: 5 * $font-size-base;
+
+    margin-top: $footer-spacing * $mobile-reduction-factor;
+    text-align: center;
+
+    @media (min-width: $bp-tablet) {
+      margin-top: $footer-spacing;
+      text-align: right;
+    }
   }
 }

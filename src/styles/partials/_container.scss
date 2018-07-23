@@ -1,17 +1,34 @@
 .Container {
   $container-width-base: $font-size-base * 80;
+  position: relative;
   width: 100%;
   max-width: $container-width-base;
   margin-left: auto;
   margin-right: auto;
-  position: relative;
 
   &--padded {
     padding-left: 2 * $font-size-base;
     padding-right: 2 * $font-size-base;
+
+    @media (min-width: $bp-mobile-l) {
+      padding-left: 3 * $font-size-base;
+      padding-right: 3 * $font-size-base;
+    }
+
+    @media (min-width: $bp-tablet) {
+      padding-left: 5 * $font-size-base;
+      padding-right: 5 * $font-size-base;
+    }
+
+    @media (min-width: $bp-desktop-m) {
+      padding-left: 0;
+      padding-right: 0;
+    }
   }
 
   &--inner {
-    max-width: $container-width-base * 0.8;
+    @media (min-width: $bp-tablet) {
+      max-width: $container-width-base * 0.8;
+    }
   }
 }

@@ -1,47 +1,71 @@
 h1, .h1 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-1;
+  font-size: $font-size-header-1 * $mobile-reduction-factor;
   font-weight: $font-weight-base;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-1;
+  }
 }
 
 h2, .h2 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-2;
+  font-size: $font-size-header-2 * $mobile-reduction-factor;
   font-weight: $font-weight-base;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-2;
+  }
 }
 
 h3, .h3 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-3;
+  font-size: $font-size-header-3 * $mobile-reduction-factor;
   font-weight: $font-weight-base;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-3;
+  }
 }
 
 h4, .h4 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-4;
+  font-size: $font-size-header-4 * $mobile-reduction-factor;
   font-weight: $font-weight-base;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-4;
+  }
 }
 
 h5, .h5 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-5;
+  font-size: $font-size-header-5 * $mobile-reduction-factor;
   font-weight: $font-weight-base;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-5;
+  }
 }
 
 h6, .h6 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-6;
+  font-size: $font-size-header-6 * $mobile-reduction-factor;
   font-weight: $font-weight-base;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-6;
+  }
 }

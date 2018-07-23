@@ -1,5 +1,10 @@
 .Clients {
-  margin-top: $font-size-base * 5;
+  $client-spacing: $font-size-base * 5;
+  margin-top: $client-spacing * $mobile-reduction-factor;
+
+  @media (min-width: $bp-tablet) {
+    margin-top: $client-spacing;
+  }
 
   &-list {
     &-item {
@@ -7,10 +12,17 @@
       margin-bottom: $font-size-base * 2;
 
       > img {
-        max-height: $font-size-base * 4;
-        max-width: $font-size-base * 10;
+        $max-height: $font-size-base * 4;
+        $max-width: $font-size-base * 10;
+        max-height: $max-height * $mobile-reduction-factor;
+        max-width: $max-width * $mobile-reduction-factor;
         width: auto;
         height: auto;
+
+        @media (min-width: $bp-tablet) {
+          max-height: $max-height;
+          max-width: $max-width;
+        }
       }
     }
   }

@@ -1,11 +1,20 @@
 .Cube {
+  $cube-spacing: 5 * $font-size-base;
+
   height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 5 * $font-size-base;
-  padding-bottom: 5 * $font-size-base;
-  margin-top: 5 * $font-size-base;
-  margin-bottom: 5 * $font-size-base;
+  padding-top: $cube-spacing * $mobile-reduction-factor;
+  padding-bottom: $cube-spacing * $mobile-reduction-factor;
+  margin-top: $cube-spacing * $mobile-reduction-factor;
+  margin-bottom: $cube-spacing * $mobile-reduction-factor;
+
+  @media (min-width: $bp-tablet) {
+    padding-top: $cube-spacing;
+    padding-bottom: $cube-spacing;
+    margin-top: $cube-spacing;
+    margin-bottom: $cube-spacing;
+  }
 
   &-section {
     width: 100%;

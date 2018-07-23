@@ -10,7 +10,7 @@
   <body>
     <div id="darkSection" class="Section Section--padBottom">
       <nav class="Nav">
-        <div class="Container FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
+        <div class="Container Container--padded FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
           <div>
             <img class="Nav-logo u-responsive" src="images/logo@1x.png" srcset="images/logo@1x.png, images/logo@2x.png 2x" alt="Space Tango logo">
           </div>
@@ -32,22 +32,24 @@
         </div>
       </nav>
       <div id="hero" class="Hero">
-        <div class="Hero-headline Container">
-          <h3 id="heroHeadline" class="Hero-headline-title u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery and innovation. By exploring it with industries of all kinds, we can improve life on Earth.</h3>
+        <div class="Hero-headline Container Container--padded">
+          <div class="Container Container--inner">
+            <h3 id="heroHeadline" class="Hero-headline-title u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery <br class="u-hide--beforeDesktop"> and innovation. By exploring it with industries of all kinds, <br class="u-hide--beforeDesktop"> we can improve life on Earth.</h3>
+          </div>
         </div>
         <div class="Hero-image FlexLayout FlexLayout--mainCentered">
           <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe@1x.png" srcset="images/globe@1x.png, images/globe@1.5x.png 1.5x, images/globe@2x.png 2x" alt="Rotating globe animation">
         </div>
       </div>
       <article class="FeaturedWork">
-        <div class="Container">
-          <header id="featuredWorkHeader" class="FeaturedWork-header FlexLayout">
+        <div class="Container Container--padded">
+          <header id="featuredWorkHeader" class="FeaturedWork-header">
             <div id="featuredWorkHeaderCaption" class="FeaturedWork-header-caption u-animate--slow4 u-animate--fadeInFromBottom">
               <h2 class="u-marginBottom">Featured Work</h2>
               <p class="FeaturedWork-header-caption-description">Docked on the International Space Station, our payloads yield results for a diverse range of industries, for life science and physical science research  to manufacturing and beyond. Each project, in some way, shares a common goal to improve life on Earth. Here are some of our featured projects.</p>
             </div>
             <div class="FeaturedWork-header-figure">
-              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated@1x.png" srcset="images/iss-isolated@1x.png, images/iss-isolated@1.5x.png 1.5x, images/iss-isolated@2x.png 2x" alt="International Space Station">
+              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight" src="images/iss-isolated@1x.png" srcset="images/iss-isolated@1x.png, images/iss-isolated@1.5x.png 1.5x, images/iss-isolated@2x.png 2x" alt="International Space Station">
             </div>
           </header>
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
@@ -130,7 +132,7 @@
     </div>
     <div id="lightSection" class="Section Section--padTop Cube">
       <section class="Cube-section">
-        <div class="Container">
+        <div class="Container Container--padded">
           <h2 class="u-marginBottom">CubeLab™</h2>
           <div id="cubeSlider" class="Cube-slider">
             <div class="Cube-slider-track">
@@ -188,7 +190,7 @@
       </section>
     </div>
     <div class="Section Section--padBottom">
-      <div class="Container">
+      <div class="Container Container--padded">
         <h2 class="u-marginBottom">Our Clients</h2>
         <div class="Clients Container Container--inner">
           <div class="Clients-list FlexLayout FlexLayout--wrap FlexLayout--crossCentered FlexLayout--space2">
@@ -218,11 +220,19 @@
       </div>
     </div>
     <footer id="footerSection" class="Section Section--padTop Section--padBottom Section--red">
-      <div class="Container">
-        <div class="FlexLayout FlexLayout--mainSpaceEvenly">
+      <div class="Container Container--padded">
+        <div class="FlexLayout FlexLayout--column FlexLayout--space4 u-hide--afterTablet">
+          <h3>Microgravity<br>Manufacturing<br>and Research</h3>
+          <div>
+            <h3>(650) 837-0332</h3>
+            <h3>info@spacetango.com</h3>
+          </div>
+          <p><small>Copyright 2018 Space Tango</small></p>
+        </div>
+        <div class="FlexLayout FlexLayout--mainSpaceEvenly u-hide--beforeTablet">
           <div class="FlexLayout--spacer1"></div>
           <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
-            <h3 class="u-marginBottom4">Microgravity<br />Manufacturing<br />and Research</h3>
+            <h3 class="u-marginBottom4">Microgravity<br>Manufacturing<br>and Research</h3>
             <p><small>Copyright 2018 Space Tango</small></p>
           </div>
           <div class="FlexLayout--spacer1"></div>

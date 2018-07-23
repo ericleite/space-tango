@@ -14,3 +14,23 @@
 .u-marginTop {
   margin-top: 1em;
 }
+
+.u-hide {
+  &--beforeDesktop {
+    @media (max-width: $bp-desktop-m - 1px) {
+      display: none;
+    }
+  }
+
+  &--beforeTablet {
+    @media (max-width: $bp-tablet - 1px) {
+      display: none;
+    }
+  }
+
+  &--afterTablet {
+    @media (min-width: $bp-tablet) {
+      display: none;
+    }
+  }
+}

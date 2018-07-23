@@ -10,8 +10,12 @@ body {
   background-color: $grey;
   color: $space-grey;
   font-family: $font-family-base;
-  font-size: $font-size-base;
+  font-size: $font-size-base * $mobile-reduction-factor;
   font-weight: $font-weight-base;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-base;
+  }
 }
 
 ul {
@@ -30,9 +34,13 @@ a {
 
 p {
   font-family: $font-family-base-light;
-  font-size: $font-size-header-4;
+  font-size: $font-size-header-4 * $mobile-reduction-factor;
   line-height: $line-height-copy;
   margin: 0;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-header-4;
+  }
 
   + p {
     margin-top: 1em;
@@ -40,7 +48,11 @@ p {
 }
 
 small {
-  font-size: $font-size-small;
+  font-size: $font-size-small * 0.8;
+
+  @media (min-width: $bp-tablet) {
+    font-size: $font-size-small;
+  }
 }
 
 figure {
