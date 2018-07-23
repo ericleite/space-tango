@@ -1,7 +1,7 @@
 'use strict';
 
-const App = require('app');
+const Homepage = require('homepage');
 
 document.addEventListener("DOMContentLoaded", () => {
-  App.init();
+  Homepage.init();
 });
