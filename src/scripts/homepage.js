@@ -169,10 +169,12 @@ class Homepage {
   */
   registerFigureVideos() {
     this.figureVideos = document.querySelectorAll('.featuredWorkFigure video');
-    Array.prototype.forEach.call(this.figureVideos, video => {
-      video.addEventListener('mouseenter', this.handleMouseenterFigureVideo);
-      video.addEventListener('mouseleave', this.handleMouseleaveFigureVideo);
-    });
+    if (this.figureVideos.length > 0) {
+      Array.prototype.forEach.call(this.figureVideos, video => {
+        video.addEventListener('mouseenter', this.handleMouseenterFigureVideo);
+        video.addEventListener('mouseleave', this.handleMouseleaveFigureVideo);
+      });
+    }
     this.forcePlay(this.figureVideos);
   }
 
@@ -181,6 +183,11 @@ class Homepage {
   */
   registerSliderVideos() {
     this.sliderVideos = document.querySelectorAll(`${CUBE_SLIDER_SLIDE_SELECTOR} video`);
+    if (this.sliderVideos.length > 0) {
+      Array.prototype.forEach.call(this.sliderVideos, video => {
+        video.currentTime = 0;
+      });
+    }
     this.forcePlay(this.sliderVideos);
   }
 
@@ -234,7 +241,7 @@ class Homepage {
   * @param {NodeList} videos - List of videos to play.
   */
   forcePlay(videos) {
-    if (videos.length) {
+    if (videos.length > 0) {
       Array.prototype.forEach.call(videos, video => {
         if (video.autoplay) {
           video.play();
