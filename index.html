@@ -10,8 +10,10 @@
   <body>
     <div id="darkSection" class="Section Section--padBottom">
       <nav class="Nav">
-        <div class="Container FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
-          <img class="Nav-logo u-responsive" src="images/logo.png" srcset="images/logo.png, images/logo@2x.png 2x" alt="Space Tango logo">
+        <div class="Container Container--padded FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
+          <div>
+            <img class="Nav-logo u-responsive" src="images/logo@1x.png" srcset="images/logo@1x.png, images/logo@2x.png 2x" alt="Space Tango logo">
+          </div>
           <div class="Nav-links FlexLayout FlexLayout--column FlexLayout--mainCentered">
             <ul class="Nav-subMenu FlexLayout FlexLayout--mainEnd FlexLayout--crossCentered FlexLayout--spaceHalf">
               <li><a class="Link Link--light" href="#">Press</a></li>
@@ -30,22 +32,24 @@
         </div>
       </nav>
       <div id="hero" class="Hero">
-        <div class="Hero-headline Container">
-          <h3 id="heroHeadline" class="Hero-headline-title u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery and innovation. By exploring it with industries of all kinds, we can improve life on Earth.</h3>
+        <div class="Hero-headline Container Container--padded">
+          <div class="Container Container--inner">
+            <h3 id="heroHeadline" class="Hero-headline-title u-animate--slow4 u-animate--delay3 u-animate--fadeInFromBottom">The microgravity environment is a new frontier for discovery <br class="u-hide--beforeDesktop"> and innovation. By exploring it with industries of all kinds, <br class="u-hide--beforeDesktop"> we can improve life on Earth.</h3>
+          </div>
         </div>
         <div class="Hero-image FlexLayout FlexLayout--mainCentered">
-          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe.png" srcset="images/globe.png, images/globe.png 1.5x, images/globe.png 2x" alt="Rotating globe animation">
+          <img id="heroImage" class="u-animate--slow8 u-animate--fadeIn" src="images/globe@1x.png" srcset="images/globe@1x.png, images/globe@1.5x.png 1.5x, images/globe@2x.png 2x" alt="Rotating globe animation">
         </div>
       </div>
       <article class="FeaturedWork">
-        <div class="Container">
-          <header id="featuredWorkHeader" class="FeaturedWork-header FlexLayout">
+        <div class="Container Container--padded">
+          <header id="featuredWorkHeader" class="FeaturedWork-header">
             <div id="featuredWorkHeaderCaption" class="FeaturedWork-header-caption u-animate--slow4 u-animate--fadeInFromBottom">
               <h2 class="u-marginBottom">Featured Work</h2>
               <p class="FeaturedWork-header-caption-description">Docked on the International Space Station, our payloads yield results for a diverse range of industries, for life science and physical science research  to manufacturing and beyond. Each project, in some way, shares a common goal to improve life on Earth. Here are some of our featured projects.</p>
             </div>
             <div class="FeaturedWork-header-figure">
-              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight u-animate--delay2" src="images/iss-isolated.png" alt="International Space Station">
+              <img id="featuredWorkHeaderFigure" class="u-responsive u-animate--slow4 u-animate--fadeInFromTopRight" src="images/iss-isolated@1x.png" srcset="images/iss-isolated@1x.png, images/iss-isolated@1.5x.png 1.5x, images/iss-isolated@2x.png 2x" alt="International Space Station">
             </div>
           </header>
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
@@ -54,7 +58,7 @@
               <p>Observing the passive separation and mixing of immiscible fluids in microgravity</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video class="u-responsive" autoplay loop muted playsinline>
+              <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/immiscible.jpg">
                 <source src="videos/immiscible-liquid.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -66,7 +70,7 @@
               <p>Investigating the effects microgravity has on the Mealworm life cycle</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video class="u-responsive" autoplay loop muted playsinline>
+              <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/mealworms.jpg">
                 <source src="videos/mealworms.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -78,7 +82,7 @@
               <p>Observing the behavior and flight patterns of alfalfa leaf cutting bees in the microgravity environment</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video class="u-responsive" autoplay loop muted playsinline>
+              <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/bees.jpg">
                 <source src="videos/bees.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -90,7 +94,7 @@
               <p>Evaluating the effects of microgravity on dry seeds, germination, and initial growth of barley</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video class="u-responsive" autoplay loop muted playsinline>
+              <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/barley-germination.jpg">
                 <source src="videos/barley-germination.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -102,7 +106,7 @@
               <p>Investigating the effects microgravity has on the Mealworm life cycle.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video class="u-responsive" autoplay loop muted playsinline>
+              <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/flow-chemistry.jpg">
                 <source src="videos/flow-chemistry.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -111,10 +115,10 @@
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>E. COLI</header>
-              <p>Evaluating the evolution of E.Coli resistance to antibiotics in the microgravity environment</p>
+              <p>Evaluating the evolution of E. Coli resistance to antibiotics in the microgravity environment</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
-              <video class="u-responsive" autoplay loop muted playsinline>
+              <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/e-coli.jpg">
                 <source src="videos/e-coli.mp4" type="video/mp4" />
                 Sorry, your browser doesn't support embedded videos.
               </video>
@@ -126,17 +130,17 @@
         </div>
       </article>
     </div>
-    <div id="lightSection" class="Section Section--padTop Cube">
+    <div id="lightSection" class="Section Cube">
       <section class="Cube-section">
-        <div class="Container">
+        <div class="Container Container--padded">
           <h2 class="u-marginBottom">CubeLab™</h2>
           <div id="cubeSlider" class="Cube-slider">
             <div class="Cube-slider-track">
               <div class="Cube-slider-slide">
-                <div class="Cube-slider-slide-content FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
+                <div class="Cube-slider-slide-content">
                   <h3>CubeLabs are an autonomous microgravity research and manufacturing standard developed by Space Tango for modular, scalable and reconfigurable use.</h3>
                   <div>
-                    <video class="u-responsive" autoplay loop muted playsinline>
+                    <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
                       <source src="videos/cube-1.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
@@ -144,10 +148,10 @@
                 </div>
               </div>
               <div class="Cube-slider-slide">
-                <div class="Cube-slider-slide-content FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-                  <h3>This is another slide with information on the second cube animation.</h3>
+                <div class="Cube-slider-slide-content">
+                  <h3>CubeLab modules scale in volume with added complexity. A 1U is a 4” cube, but modules can currently scale up to 6U’s.</h3>
                   <div>
-                    <video class="u-responsive" autoplay loop muted playsinline>
+                    <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
                       <source src="videos/cube-2.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
@@ -155,11 +159,23 @@
                 </div>
               </div>
               <div class="Cube-slider-slide">
-                <div class="Cube-slider-slide-content FlexLayout FlexLayout--crossCentered FlexLayout--equalWidth FlexLayout--space4">
-                  <h3>CubeLabs are an autonomous microgravity research and manufacturing standard developed by Space Tango for modular, scalable and reconfigurable use.</h3>
+                <div class="Cube-slider-slide-content">
+                  <h3>All environmental, sensing and control logistics are included within these units.</h3>
                   <div>
-                    <video class="u-responsive" autoplay loop muted playsinline>
+                    <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
                       <source src="videos/cube-3.mp4" type="video/mp4" />
+                      Sorry, your browser doesn't support embedded videos.
+                    </video>
+                  </div>
+                </div>
+              </div>
+              <div class="Cube-slider-slide">
+                <div class="Cube-slider-slide-content">
+                  <h3>CubeLabs are reused between flights allowing a quick hardware turnaround
+                      and high experimental throughput.</h3>
+                  <div>
+                    <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
+                      <source src="videos/cube-1.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   </div>
@@ -174,7 +190,7 @@
       </section>
     </div>
     <div class="Section Section--padBottom">
-      <div class="Container">
+      <div class="Container Container--padded">
         <h2 class="u-marginBottom">Our Clients</h2>
         <div class="Clients Container Container--inner">
           <div class="Clients-list FlexLayout FlexLayout--wrap FlexLayout--crossCentered FlexLayout--space2">
@@ -204,15 +220,25 @@
       </div>
     </div>
     <footer id="footerSection" class="Section Section--padTop Section--padBottom Section--red">
-      <div class="Container">
-        <div class="Footer-logo">
-          <div class="Logo active">Logo</div>
-        </div>
-        <div class="FlexLayout FlexLayout--mainSpaceEvenly">
-          <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
-            <h3 class="u-marginBottom4">Microgravity<br />Manufacturing<br />and Research</h3>
-            <small>Copyright 2018 Space Tango</small>
+      <div class="Container Container--padded">
+        <div class="FlexLayout FlexLayout--column FlexLayout--space4 u-hide--afterTablet">
+          <div class="Logo--icon">
+            <img src="images/logo-sm.png" alt="Space Tango logo icon">
           </div>
+          <h3>Microgravity<br>Manufacturing<br>and Research</h3>
+          <div>
+            <h3>(650) 837-0332</h3>
+            <h3>info@spacetango.com</h3>
+          </div>
+          <p><small>Copyright 2018 Space Tango</small></p>
+        </div>
+        <div class="FlexLayout FlexLayout--mainSpaceEvenly u-hide--beforeTablet">
+          <div class="FlexLayout--spacer1"></div>
+          <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
+            <h3 class="u-marginBottom4">Microgravity<br>Manufacturing<br>and Research</h3>
+            <p><small>Copyright 2018 Space Tango</small></p>
+          </div>
+          <div class="FlexLayout--spacer1"></div>
           <div class="FlexLayout FlexLayout--column FlexLayout--mainSpaceBetween">
             <div>
               <h3>(650) 837-0332</h3>
@@ -226,6 +252,7 @@
             </div>
             <p>333 E Short St. Lexington, KY 40507</p>
           </div>
+          <div class="FlexLayout--spacer1"></div>
         </div>
       </div>
     </footer>
