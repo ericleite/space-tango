@@ -13,7 +13,11 @@
   }
 
   > * + * {
-    margin-top: $section-spacing * $mobile-reduction-factor;
+    margin-top: $section-spacing * $base-reduction-factor;
+
+    @media (min-width: $bp-mobile-l) {
+      margin-top: $section-spacing * $mobile-reduction-factor;
+    }
 
     @media (min-width: $bp-desktop-s) {
       margin-top: $section-spacing;
@@ -21,7 +25,11 @@
   }
 
   &--padTop {
-    padding-top: $section-spacing * $mobile-reduction-factor;
+    padding-top: $section-spacing * $base-reduction-factor;
+
+    @media (min-width: $bp-mobile-l) {
+      padding-top: $section-spacing * $mobile-reduction-factor;
+    }
 
     @media (min-width: $bp-tablet) {
       padding-top: $section-spacing;
@@ -29,7 +37,11 @@
   }
 
   &--padBottom {
-    padding-bottom: $section-spacing * $mobile-reduction-factor;
+    padding-bottom: $section-spacing * $base-reduction-factor;
+
+    @media (min-width: $bp-mobile-l) {
+      padding-bottom: $section-spacing * $mobile-reduction-factor;
+    }
 
     @media (min-width: $bp-tablet) {
       padding-bottom: $section-spacing;

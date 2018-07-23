@@ -46,7 +46,10 @@
         padding-left: 0;
         padding-right: 0;
         transform: translateY(-50%);
-        transition-delay: 2 * $animation-duration-default;
+
+        > img {
+          transition-delay: $animation-duration-default;
+        }
       }
 
       @media (min-width: $bp-desktop-m) {
@@ -58,10 +61,14 @@
   &-figure {
     $figure-spacing: 10 * $font-size-base;
     $figure-class: &;
-    margin-top: $figure-spacing * $mobile-reduction-factor;
+    margin-top: $figure-spacing * $base-reduction-factor;
     position: relative;
     display: flex;
     flex-direction: column-reverse;
+
+    @media (min-width: $bp-mobile-l) {
+      margin-top: $figure-spacing * $mobile-reduction-factor;
+    }
 
     @media (min-width: $bp-tablet) {
       display: block;
@@ -152,7 +159,11 @@
 
   footer {
     $footer-spacing: 10 * $font-size-base;
-    margin-top: $footer-spacing * $mobile-reduction-factor;
+    margin-top: $footer-spacing * $base-reduction-factor;
+
+    @media (min-width: $bp-mobile-l) {
+      margin-top: $footer-spacing * $mobile-reduction-factor;
+    }
 
     @media (min-width: $bp-tablet) {
       margin-top: $footer-spacing;
