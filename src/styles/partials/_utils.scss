@@ -22,14 +22,14 @@
     }
   }
 
-  &--beforeTablet {
-    @media (max-width: $bp-tablet - 1px) {
+  &--beforeDesktopS {
+    @media (max-width: $bp-desktop-s - 1px) {
       display: none;
     }
   }
 
-  &--afterTablet {
-    @media (min-width: $bp-tablet) {
+  &--afterDesktopS {
+    @media (min-width: $bp-desktop-s) {
       display: none;
     }
   }

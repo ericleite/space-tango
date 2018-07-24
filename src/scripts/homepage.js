@@ -74,6 +74,9 @@ class Homepage {
     // Setup resize listener
     this.handleResize();
     window.addEventListener('resize', this.debouncedHandleResize);
+
+    // Add active class to globe (in case the animation didn't activate)
+    this.globeEl.classList.add('active');
   }
 
   /*
@@ -126,7 +129,6 @@ class Homepage {
     const end = (150 / 200 * 100) - start;
     this.scenes.globe = new ScrollMagic.Scene({
       duration,
-      offset: -1, // to make sure it always starts on load
       reverse: true,
       triggerElement: GLOBE_SELECTOR,
       triggerHook: 'onEnter'

@@ -26,13 +26,23 @@
   }
 
   &-slider {
-    $slide-height: 600px;
+    $slide-height-desktop-s: 400px;
+    $slide-height-desktop-1280: 500px;
+    $slide-height-desktop-m: 575px;
     position: relative;
     width: 100%;
 
     @media (min-width: $bp-desktop-s) {
       overflow: hidden;
-      height: $slide-height;
+      height: $slide-height-desktop-s;
+    }
+
+    @media (min-width: 1280px) {
+      height: $slide-height-desktop-1280;
+    }
+
+    @media (min-width: $bp-desktop-m) {
+      height: $slide-height-desktop-m;
     }
 
     &-track {
@@ -56,10 +66,20 @@
 
       @media (min-width: $bp-desktop-s) {
         overflow: hidden;
-        height: $slide-height;
+        height: $slide-height-desktop-s;
         margin-bottom: 0;
-        clip-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3Cdefs%3E%3CclipPath id='cubeSliderClipPath' clipPathUnits='objectBoundingBox'%3E%3Cpolygon points='0 0, 0 1, 1 1, 0 1' /%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"); // for Firefox
+        -webkit-clip-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3Cdefs%3E%3CclipPath id='cubeSliderClipPath' clipPathUnits='objectBoundingBox'%3E%3Cpolygon points='0 0, 0 1, 1 1, 0 1' /%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"); // for Safari (fallback)
+        clip-path: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='0' height='0'%3E%3Cdefs%3E%3CclipPath id='cubeSliderClipPath' clipPathUnits='objectBoundingBox'%3E%3Cpolygon points='0 0, 0 1, 1 1, 0 1' /%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E"); // for Firefox (fallback)
+        -webkit-clip-path: inset(0 0 0 0); // for Safari
         clip-path: inset(0 0 0 0); // for Chome
+      }
+
+      @media (min-width: 1280px) {
+        height: $slide-height-desktop-1280;
+      }
+
+      @media (min-width: $bp-desktop-m) {
+        height: $slide-height-desktop-m;
       }
 
       &:last-child {
