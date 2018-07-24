@@ -7,9 +7,27 @@
   }
 
   &-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    @media (min-width: $bp-mobile-l) {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
     &-item {
       flex: 0 0 auto;
       margin-bottom: $font-size-base * 2;
+
+      @media (min-width: $bp-mobile-l) {
+        margin-right: $font-size-base * 2;
+      }
+
+      &:last-child {
+        margin-right: 0;
+        margin-bottom: 0;
+      }
 
       > img {
         $max-height: $font-size-base * 4;

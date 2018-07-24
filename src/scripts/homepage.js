@@ -120,15 +120,19 @@ class Homepage {
   * Creates the scene for the globe rise-up animation.
   */
   buildGlobeScene() {
+    const duration = this.getGlobeSceneDuration();
+    const start = 12;
+    // (% end position) = ((% globe size / % animation length) * 100%) - (% start position)
+    const end = (150 / 200 * 100) - start;
     this.scenes.globe = new ScrollMagic.Scene({
-      duration: this.getGlobeSceneDuration(),
+      duration,
       offset: -1, // to make sure it always starts on load
       reverse: true,
       triggerElement: GLOBE_SELECTOR,
       triggerHook: 'onEnter'
     })
       .setClassToggle('#globeImage', ACTIVE_CLASS)
-      .setTween(TweenLite.fromTo('#globeContainer', 1, { y: '-10%' }, { y: '-65%', ease: Power0.easeNone }))
+      .setTween(TweenLite.fromTo('#globeContainer', 1, { y: `-${start}%` }, { y: `-${end}%`, ease: Power0.easeNone }))
     this.controller.addScene(this.scenes.globe);
   }
 

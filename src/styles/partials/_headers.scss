@@ -1,7 +1,7 @@
 h1, .h1 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-1 * $mobile-reduction-factor;
+  font-size: $font-size-header-2;
   font-weight: $font-weight-base;
   margin: 0;
 
@@ -13,7 +13,7 @@ h1, .h1 {
 h2, .h2 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-2 * $mobile-reduction-factor;
+  font-size: $font-size-header-3;
   font-weight: $font-weight-base;
   margin: 0;
 
@@ -25,7 +25,7 @@ h2, .h2 {
 h3, .h3 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-3 * $mobile-reduction-factor;
+  font-size: $font-size-header-4;
   font-weight: $font-weight-base;
   margin: 0;
 
@@ -37,7 +37,7 @@ h3, .h3 {
 h4, .h4 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-4 * $mobile-reduction-factor;
+  font-size: $font-size-header-5;
   font-weight: $font-weight-base;
   margin: 0;
 
@@ -49,7 +49,7 @@ h4, .h4 {
 h5, .h5 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-5 * $mobile-reduction-factor;
+  font-size: $font-size-header-6;
   font-weight: $font-weight-base;
   margin: 0;
 
@@ -61,7 +61,7 @@ h5, .h5 {
 h6, .h6 {
   line-height: $line-height-header;
   font-family: $font-family-base-light;
-  font-size: $font-size-header-6 * $mobile-reduction-factor;
+  font-size: $font-size-small;
   font-weight: $font-weight-base;
   margin: 0;
 
