@@ -123,12 +123,13 @@ class Homepage {
   * Creates the scene for the globe rise-up animation.
   */
   buildGlobeScene() {
-    const duration = this.getGlobeSceneDuration();
+    const duration = this.getGlobeSceneDuration() * 1.05;
     const start = 12;
     // (% end position) = ((% globe size / % animation length) * 100%) - (% start position)
-    const end = (150 / 200 * 100) - start;
+    const end = (150 / 192 * 100) - start;
     this.scenes.globe = new ScrollMagic.Scene({
       duration,
+      offset: -60,
       reverse: true,
       triggerElement: GLOBE_SELECTOR,
       triggerHook: 'onEnter'
