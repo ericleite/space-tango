@@ -26,15 +26,15 @@ const LIGHT_BODY_STYLE = {
 // Classes
 const ACTIVE_CLASS = 'active';
 const LIGHT_SECTION_SPACER_CLASS = 'lightSectionSpacer';
-// Trigger constants
-const HERO_TRIGGER = '#hero';
-const FEATURED_WORK_HEADER_TRIGGER = '#featuredWorkHeader';
-const LIGHT_SECTION_TRIGGER = '#lightSection';
 // Selectors
 const CUBE_SLIDER_SELECTOR = '#cubeSlider';
-const CUBE_SLIDER_TRACK_SELECTOR = `${CUBE_SLIDER_SELECTOR} .Cube-slider-track`;
-const CUBE_SLIDER_SLIDE_SELECTOR = `${CUBE_SLIDER_SELECTOR} .Cube-slider-slide`;
 const CUBE_SLIDER_SLIDE_CONTENT_SELECTOR = '.Cube-slider-slide-content';
+const CUBE_SLIDER_SLIDE_SELECTOR = `${CUBE_SLIDER_SELECTOR} .Cube-slider-slide`;
+const CUBE_SLIDER_TRACK_SELECTOR = `${CUBE_SLIDER_SELECTOR} .Cube-slider-track`;
+const FEATURED_WORK_HEADER_SELECTOR = '#featuredWorkHeader';
+const GLOBE_SELECTOR = '#globe';
+const HERO_SELECTOR = '#hero';
+const LIGHT_SECTION_SELECTOR = '#lightSection';
 const LIGHT_SECTION_SPACER_SELECTOR = `.${LIGHT_SECTION_SPACER_CLASS}`;
 
 /*
@@ -60,9 +60,18 @@ class Homepage {
   /*
   * Used to initialize the application. Only call this once the DOM is ready.
   */
-  init() {
+  initialize() {
+    // Cache common elements
+    this.globeEl = document.querySelector(GLOBE_SELECTOR);
+    this.heroEl = document.querySelector(HERO_SELECTOR);
+
+    // Build scenes
     this.buildStaticScenes();
+
+    // Register videos
     this.registerFigureVideos();
+
+    // Setup resize listener
     this.handleResize();
     window.addEventListener('resize', this.debouncedHandleResize);
   }
@@ -71,38 +80,27 @@ class Homepage {
   * Creates scroll-based animations for static section.
   */
   buildStaticScenes() {
-    // Hero section
-    this.scenes.hero = [
-      // Caption fade/rise-in
-      new ScrollMagic.Scene({
-        triggerElement: HERO_TRIGGER,
-        reverse: false,
-        triggerHook: 1
-      })
-        .setClassToggle('#heroHeadline', ACTIVE_CLASS),
-      // Globe fade-in
-      new ScrollMagic.Scene({
-        triggerElement: HERO_TRIGGER,
-        reverse: false,
-        triggerHook: 1
-      })
-        .setClassToggle('#heroImage', ACTIVE_CLASS)
-    ];
+    // Caption fade/rise-in
+    this.scenes.hero = new ScrollMagic.Scene({
+      reverse: false,
+      triggerElement: HERO_SELECTOR,
+      triggerHook: 1
+    }).setClassToggle('#heroHeadline', ACTIVE_CLASS);
     this.controller.addScene(this.scenes.hero);
 
     // Featured Work header section
     this.scenes.featuredWorkHeader = [
       // "Featured Work" intro fade/rise-in
       new ScrollMagic.Scene({
-        triggerElement: FEATURED_WORK_HEADER_TRIGGER,
         reverse: false,
+        triggerElement: FEATURED_WORK_HEADER_SELECTOR,
         triggerHook: 0.8
       })
         .setClassToggle('#featuredWorkHeaderCaption', ACTIVE_CLASS),
       // ISS image fade/swoop-in
       new ScrollMagic.Scene({
-        triggerElement: FEATURED_WORK_HEADER_TRIGGER,
         reverse: false,
+        triggerElement: FEATURED_WORK_HEADER_SELECTOR,
         triggerHook: 0.8
       })
         .setClassToggle('#featuredWorkHeaderFigure', ACTIVE_CLASS)
@@ -111,11 +109,27 @@ class Homepage {
 
     // Dark to light transition
     this.scenes.darkToLight = new ScrollMagic.Scene({
-      triggerElement: LIGHT_SECTION_TRIGGER,
-      triggerHook: 'onEnter',
-      duration: 320
+      duration: 320,
+      triggerElement: LIGHT_SECTION_SELECTOR,
+      triggerHook: 'onEnter'
     }).setTween(TweenLite.fromTo(document.body, 1, DARK_BODY_STYLE, LIGHT_BODY_STYLE));
     this.controller.addScene(this.scenes.darkToLight);
+  }
+
+  /*
+  * Creates the scene for the globe rise-up animation.
+  */
+  buildGlobeScene() {
+    this.scenes.globe = new ScrollMagic.Scene({
+      duration: this.getGlobeSceneDuration(),
+      offset: -1, // to make sure it always starts on load
+      reverse: true,
+      triggerElement: GLOBE_SELECTOR,
+      triggerHook: 'onEnter'
+    })
+      .setClassToggle('#globeImage', ACTIVE_CLASS)
+      .setTween(TweenLite.fromTo('#globeContainer', 1, { y: '-10%' }, { y: '-65%', ease: Power0.easeNone }))
+    this.controller.addScene(this.scenes.globe);
   }
 
   /*
@@ -125,7 +139,7 @@ class Homepage {
     const slides = document.querySelectorAll(CUBE_SLIDER_SLIDE_SELECTOR);
     const slideCount = slides.length;
     const sliderSceneOptions = {
-      triggerElement: LIGHT_SECTION_TRIGGER,
+      triggerElement: LIGHT_SECTION_SELECTOR,
       triggerHook: 'onLeave',
       duration: `${slideCount - 1}00%`
     };
@@ -143,14 +157,28 @@ class Homepage {
 
     // Create slider scene.
     this.scenes.cubeSlider = new ScrollMagic.Scene(sliderSceneOptions)
-      .setPin(LIGHT_SECTION_TRIGGER, { spacerClass: LIGHT_SECTION_SPACER_CLASS })
+      .setPin(LIGHT_SECTION_SELECTOR, { spacerClass: LIGHT_SECTION_SPACER_CLASS })
       .setTween(timeline)
-      .on('change', e => { console.log('changed') })
       .on('enter', this.handleEnterCubeSliderScene)
       .on('leave destroy', e => { this.unpinSlides(slides); });
     this.controller.addScene(this.scenes.cubeSlider);
   }
 
+  /*
+  * Rebuilds globe scene.
+  */
+  rebuildGlobeScene() {
+    if (this.scenes.globe) {
+      this.scenes.globe = this.scenes.globe.destroy(true);
+    }
+    if (!this.scenes.globe) {
+      this.buildGlobeScene();
+    }
+  }
+
+  /*
+  * Rebuilds cube slider scenes.
+  */
   rebuildCubeSliderScenes() {
     // Destroy it if it exists.
     if (this.scenes.cubeSlider) {
@@ -199,6 +227,7 @@ class Homepage {
   * @param {Event} e - Window resize event.
   */
   handleResize(e) {
+    this.rebuildGlobeScene();
     this.rebuildCubeSliderScenes();
   }
 
@@ -235,6 +264,23 @@ class Homepage {
 
   // Helpers
   // -------
+
+  /*
+  * Gets the duration for the globe scene.
+  * @returns {Number} - Number of pixels to run the scene.
+  */
+  getGlobeSceneDuration() {
+    let duration = 0;
+    if (this.heroEl) {
+      const heroDimensions = this.heroEl.getBoundingClientRect();
+      duration += heroDimensions.height;
+    }
+    if (this.globeEl) {
+      const globeDimensions = this.globeEl.getBoundingClientRect();
+      duration += globeDimensions.height;
+    }
+    return duration;
+  }
 
   /*
   * Forces HTML5 videos to start playing.

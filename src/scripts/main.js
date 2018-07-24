@@ -3,5 +3,5 @@
 const Homepage = require('homepage');
 
 document.addEventListener("DOMContentLoaded", () => {
-  Homepage.init();
+  Homepage.initialize();
 });

@@ -1,32 +1,11 @@
 .Hero {
+  height: 100vh;
   width: 100%;
-  overflow: hidden;
+  margin: 0;
 
   &-headline {
-    $headline-spacing: 6 * $font-size-base;
-    margin-bottom: $headline-spacing * $mobile-reduction-factor;
-
-    @media (min-width: $bp-tablet) {
-      margin-bottom: $headline-spacing;
-    }
-
     &-title {
       text-align: center;
-    }
-  }
-
-  &-image {
-    width: 150%;
-    margin-left: -25%;
-
-    > img {
-      height: 100%;
-      width: 100%;
-      max-width: 120 * $font-size-base;
-      animation-duration: 480s;
-      animation-iteration-count: infinite;
-      animation-name: rotate-slowly;
-      animation-timing-function: linear;
     }
   }
 }

@@ -1,0 +1,25 @@
+.Globe {
+  height: 100vh;
+  max-height: 100vw;
+  width: 100%;
+  margin: 0;
+  position: relative;
+  z-index: 1;
+
+  &-container {
+    position: relative;
+    left: -25%;
+    width: 150%;
+    transform: translate3d(0, -10%, 0);
+  }
+
+  &-image {
+    height: 100%;
+    width: 100%;
+    max-width: 120 * $font-size-base;
+    animation-duration: 480s;
+    animation-iteration-count: infinite;
+    animation-name: rotate-slowly;
+    animation-timing-function: linear;
+  }
+}
