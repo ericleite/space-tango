@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="vendor.css">
     <link rel="stylesheet" href="main.css">
   </head>
-  <body>
-    <div id="darkSection" class="Section Section--padBottom">
+  <body class="static">
+    <div id="darkSection" class="Section Section--padBottom Section--spaceGreyStatic">
       <nav class="Nav">
         <div class="Container Container--padded FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
           <div>
@@ -38,7 +38,7 @@
           </div>
         </div>
       </div>
-      <div class="Globe">
+      <div id="globe" class="Globe">
         <div id="globeContainer" class="Globe-container FlexLayout FlexLayout--mainCentered">
           <img id="globeImage" class="Globe-image u-animate--slow8 u-animate--fadeIn" src="images/globe@1x.png" srcset="images/globe@1x.png, images/globe@1.5x.png 1.5x, images/globe@2x.png 2x" alt="Rotating globe animation">
         </div>
@@ -57,7 +57,7 @@
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Immiscible liquid separation</header>
-              <p>Observing the passive separation and mixing of immiscible fluids in microgravity</p>
+              <p>Observing the passive separation and mixing of immiscible fluids in microgravity.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
               <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/immiscible.jpg">
@@ -69,7 +69,7 @@
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Mealworms</header>
-              <p>Investigating the effects microgravity has on the Mealworm life cycle</p>
+              <p>Investigating the effects microgravity has on the Mealworm life cycle.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
               <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/mealworms.jpg">
@@ -81,7 +81,7 @@
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Bees</header>
-              <p>Observing the behavior and flight patterns of alfalfa leaf cutting bees in the microgravity environment</p>
+              <p>Observing the behavior and flight patterns of alfalfa leaf cutting bees in the microgravity environment.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
               <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/bees.jpg">
@@ -93,7 +93,7 @@
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>Barley Germination</header>
-              <p>Evaluating the effects of microgravity on dry seeds, germination, and initial growth of barley</p>
+              <p>Evaluating the effects of microgravity on dry seeds, germination, and initial growth of barley.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
               <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/barley-germination.jpg">
@@ -117,7 +117,7 @@
           <figure class="Container Container--inner FeaturedWork-figure featuredWorkFigure">
             <figcaption class="FeaturedWork-figure-caption">
               <header>E. COLI</header>
-              <p>Evaluating the evolution of E. Coli resistance to antibiotics in the microgravity environment</p>
+              <p>Evaluating the evolution of E. Coli resistance to antibiotics in the microgravity environment.</p>
             </figcaption>
             <div class="FeaturedWork-figure-video">
               <video class="u-responsive" autoplay loop muted playsinline poster="images/posters/e-coli.jpg">
@@ -132,7 +132,7 @@
         </div>
       </article>
     </div>
-    <div id="lightSection" class="Section Cube">
+    <div id="lightSection" class="Section Section--greyStatic Cube">
       <section class="Cube-section">
         <div class="Container Container--padded">
           <h2 class="u-marginBottom">CubeLab™</h2>
@@ -143,7 +143,7 @@
                   <h3>CubeLabs are an autonomous microgravity research and manufacturing standard developed by Space Tango for modular, scalable and reconfigurable use.</h3>
                   <div>
                     <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
-                      <source src="videos/cube-1.mp4" type="video/mp4" />
+                      <source src="videos/cube-1-reduced.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   </div>
@@ -154,7 +154,7 @@
                   <h3>CubeLab modules scale in volume with added complexity. A 1U is a 4” cube, but modules can currently scale up to 6U’s.</h3>
                   <div>
                     <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
-                      <source src="videos/cube-2.mp4" type="video/mp4" />
+                      <source src="videos/cube-1-reduced.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   </div>
@@ -165,7 +165,7 @@
                   <h3>All environmental, sensing and control logistics are included within these units.</h3>
                   <div>
                     <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
-                      <source src="videos/cube-3.mp4" type="video/mp4" />
+                      <source src="videos/cube-1-reduced.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   </div>
@@ -177,7 +177,7 @@
                       and high experimental throughput.</h3>
                   <div>
                     <video class="u-responsive" autoplay loop muted playsinline poster="TBD.jpg">
-                      <source src="videos/cube-1.mp4" type="video/mp4" />
+                      <source src="videos/cube-1-reduced.mp4" type="video/mp4" />
                       Sorry, your browser doesn't support embedded videos.
                     </video>
                   </div>
@@ -195,7 +195,7 @@
       <div class="Container Container--padded">
         <h2 class="u-marginBottom">Our Clients</h2>
         <div class="Clients Container Container--inner">
-          <div class="Clients-list FlexLayout FlexLayout--wrap FlexLayout--crossCentered FlexLayout--space2">
+          <div class="Clients-list">
             <div class="Clients-list-item">
               <img src="images/sponsors/go-for-launch-patch.png" alt="Go For Launch!">
             </div>
