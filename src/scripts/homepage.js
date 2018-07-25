@@ -65,6 +65,11 @@ class Homepage {
   * Used to initialize the application. Only call this once the DOM is ready.
   */
   initialize() {
+    // Detect browser
+    if (/MSIE/i.test(navigator.userAgent) || /Edge\/\d./i.test(navigator.userAgent)) {
+      console.log('microsoft detected');
+    }
+
     // Cache common elements
     this.globeEl = document.querySelector(GLOBE_SELECTOR);
     this.heroEl = document.querySelector(HERO_SELECTOR);
@@ -133,7 +138,7 @@ class Homepage {
   */
   buildGlobeScene() {
     const duration = this.getGlobeSceneDuration() * 1.05;
-    const start = 11;
+    const start = 10;
     // (% end position) = ((% globe size / % animation length) * 100%) - (% start position)
     const end = (150 / 192 * 100) - start;
     this.scenes.globe = new ScrollMagic.Scene({

@@ -1,3 +1,7 @@
 .DarkToLight {
   height: 65vh;
+
+  @media (min-height: $bp-desktop-s) {
+    height: 50vh;
+  }
 }
