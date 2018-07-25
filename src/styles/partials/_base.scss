@@ -16,6 +16,14 @@ body {
   @media (min-width: $bp-tablet) {
     font-size: $font-size-base;
   }
+
+  &.freeze {
+    overflow: hidden;
+
+    @media (min-width: $bp-desktop-s) {
+      overflow: visible;
+    }
+  }
 }
 
 ul {

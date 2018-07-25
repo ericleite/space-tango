@@ -9,25 +9,33 @@
   </head>
   <body class="static">
     <div id="darkSection" class="Section Section--padBottom Section--spaceGreyStatic">
-      <nav class="Nav">
-        <div class="Container Container--padded FlexLayout FlexLayout--mainSpaceBetween FlexLayout--crossCentered FlexLayout--space2">
-          <div>
-            <img class="Nav-logo u-responsive" src="images/logo@1x.png" srcset="images/logo@1x.png, images/logo@2x.png 2x" alt="Space Tango logo">
-          </div>
-          <div class="Nav-links FlexLayout FlexLayout--column FlexLayout--mainCentered">
-            <ul class="Nav-subMenu FlexLayout FlexLayout--mainEnd FlexLayout--crossCentered FlexLayout--spaceHalf">
-              <li><a class="Link Link--light" href="#">Press</a></li>
-              <li><a class="Link Link--light" href="#">Apply</a></li>
-              <li><a class="Link Link--light" href="#">Shop</a></li>
-              <li><a class="Link Link--light" href="#">Customer Portal</a></li>
-            </ul>
-            <ul class="Nav-menu FlexLayout FlexLayout--crossCentered FlexLayout--space2">
-              <li><a class="Link Link--light" href="#">Tango Lab</a></li>
-              <li><a class="Link Link--light" href="#">About</a></li>
-              <li><a class="Link Link--light" href="#">Mission History</a></li>
-              <li><a class="Link Link--light" href="#">News</a></li>
-              <li><a class="Link Link--light" href="#">Contact</a></li>
-            </ul>
+      <nav id="nav" class="Nav">
+        <div class="Container Container--padded">
+          <div class="Nav-container">
+            <div class="Nav-logoWrapper">
+              <div class="Nav-logo">
+                <img class="Nav-logo-image u-responsive" src="images/logo@1x.png" srcset="images/logo@1x.png, images/logo@2x.png 2x" alt="Space Tango logo">
+              </div>
+            </div>
+            <div class="Nav-links">
+              <ul class="Nav-links-menu">
+                <li><a class="Link Link--light" href="#">Tango Lab</a></li>
+                <li><a class="Link Link--light" href="#">About</a></li>
+                <li><a class="Link Link--light" href="#">Mission History</a></li>
+                <li><a class="Link Link--light" href="#">News</a></li>
+                <li><a class="Link Link--light" href="#">Contact</a></li>
+              </ul>
+              <ul class="Nav-links-subMenu">
+                <li><a class="Link Link--light" href="#">Press</a></li>
+                <li><a class="Link Link--light" href="#">Apply</a></li>
+                <li><a class="Link Link--light" href="#">Shop</a></li>
+                <li><a class="Link Link--light" href="#">Customer Portal</a></li>
+              </ul>
+            </div>
+            <div id="navButton" class="Nav-button">
+              <span class="Nav-button-bar Nav-button-bar--top"></span>
+              <span class="Nav-button-bar Nav-button-bar--bottom"></span>
+            </div>
           </div>
         </div>
       </nav>

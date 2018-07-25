@@ -36,6 +36,8 @@ const GLOBE_SELECTOR = '#globe';
 const HERO_SELECTOR = '#hero';
 const LIGHT_SECTION_SELECTOR = '#lightSection';
 const LIGHT_SECTION_SPACER_SELECTOR = `.${LIGHT_SECTION_SPACER_CLASS}`;
+const NAV_SELECTOR = '#nav';
+const NAV_BUTTON_SELECTOR = '#navButton';
 
 /*
 * Homepage class is the base controller for the homepage.
@@ -49,6 +51,7 @@ class Homepage {
 
     // Event handlers
     this.debouncedHandleResize = debounce(this.handleResize.bind(this), 150);
+    this.handleClickNavButton = this.handleClickNavButton.bind(this);
     this.handleEnterCubeSliderScene = this.handleEnterCubeSliderScene.bind(this);
     this.handleMouseenterVideo = this.handleMouseenterFigureVideo.bind(this);
     this.handleMouseleaveVideo = this.handleMouseleaveFigureVideo.bind(this);
@@ -64,6 +67,8 @@ class Homepage {
     // Cache common elements
     this.globeEl = document.querySelector(GLOBE_SELECTOR);
     this.heroEl = document.querySelector(HERO_SELECTOR);
+    this.navEl = document.querySelector(NAV_SELECTOR);
+    this.navButtonEl = document.querySelector(NAV_BUTTON_SELECTOR);
 
     // Build scenes
     this.buildStaticScenes();
@@ -77,6 +82,9 @@ class Homepage {
 
     // Add active class to globe (in case the animation didn't activate)
     this.globeEl.classList.add('active');
+
+    // Add event handler for nav open/close button.
+    this.navButtonEl.addEventListener('click', this.handleClickNavButton);
   }
 
   /*
@@ -230,12 +238,20 @@ class Homepage {
   // --------------
 
   /*
-  * Handles window resizing.
-  * @param {Event} e - Window resize event.
+  * Handles clicking the nav open/close button.
+  * @param {Event} e - Click event.
   */
-  handleResize(e) {
-    this.rebuildGlobeScene();
-    this.rebuildCubeSliderScenes();
+  handleClickNavButton(e) {
+    if (!this.navEl) {
+      return;
+    }
+    if (this.navEl.classList.contains('open')) {
+      this.navEl.classList.remove('open');
+      document.body.classList.remove('freeze');
+    } else {
+      this.navEl.classList.add('open');
+      document.body.classList.add('freeze');
+    }
   }
 
   /*
@@ -267,6 +283,15 @@ class Homepage {
   */
   handleMouseleaveFigureVideo(e) {
     findAncestor(e.target, '.featuredWorkFigure').querySelector('figcaption').classList.remove('secondary');
+  }
+
+  /*
+  * Handles window resizing.
+  * @param {Event} e - Window resize event.
+  */
+  handleResize(e) {
+    this.rebuildGlobeScene();
+    this.rebuildCubeSliderScenes();
   }
 
   // Helpers

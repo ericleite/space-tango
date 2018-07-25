@@ -29,6 +29,24 @@ $animation-transition-property-transform: transform;
   }
 }
 
+@keyframes collapse-and-angle-top {
+  50% {
+    transform: translateY(50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(50%) rotate(-45deg);
+  }
+}
+
+@keyframes collapse-and-angle-bottom {
+  50% {
+    transform: translateY(-50%) rotate(0deg);
+  }
+  100% {
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
+
 @keyframes rotate-slowly {
   from {
     transform: rotateZ(0deg);
