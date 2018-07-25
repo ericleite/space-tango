@@ -31,6 +31,7 @@ const CUBE_SLIDER_SELECTOR = '#cubeSlider';
 const CUBE_SLIDER_SLIDE_CONTENT_SELECTOR = '.Cube-slider-slide-content';
 const CUBE_SLIDER_SLIDE_SELECTOR = `${CUBE_SLIDER_SELECTOR} .Cube-slider-slide`;
 const CUBE_SLIDER_TRACK_SELECTOR = `${CUBE_SLIDER_SELECTOR} .Cube-slider-track`;
+const DARK_TO_LIGHT_SELECTOR = '#darkToLight';
 const FEATURED_WORK_HEADER_SELECTOR = '#featuredWorkHeader';
 const GLOBE_SELECTOR = '#globe';
 const HERO_SELECTOR = '#hero';
@@ -120,9 +121,9 @@ class Homepage {
 
     // Dark to light transition
     this.scenes.darkToLight = new ScrollMagic.Scene({
-      duration: 320,
-      triggerElement: LIGHT_SECTION_SELECTOR,
-      triggerHook: 'onEnter'
+      duration: '60%',
+      triggerElement: DARK_TO_LIGHT_SELECTOR,
+      triggerHook: 0.7
     }).setTween(TweenLite.fromTo(document.body, 1, DARK_BODY_STYLE, LIGHT_BODY_STYLE));
     this.controller.addScene(this.scenes.darkToLight);
   }
@@ -132,7 +133,7 @@ class Homepage {
   */
   buildGlobeScene() {
     const duration = this.getGlobeSceneDuration() * 1.05;
-    const start = 12;
+    const start = 11;
     // (% end position) = ((% globe size / % animation length) * 100%) - (% start position)
     const end = (150 / 192 * 100) - start;
     this.scenes.globe = new ScrollMagic.Scene({

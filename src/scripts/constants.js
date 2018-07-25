@@ -4,7 +4,7 @@ module.exports = {
   },
   COLORS: {
     FIRE_ENGINE_RED: '#CF1016',
-    GREY: '#D6D0C8',
+    GREY: '#DBD8D7',
     SPACE_GREY: '#25282A',
     WHITE: '#FFFFFF'
   }

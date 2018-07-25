@@ -1,24 +1,9 @@
 .Cube {
-  $cube-spacing: 10 * $font-size-base;
-
   display: flex;
   align-items: center;
-  padding-bottom: $cube-spacing * $base-reduction-factor;
-
-  @media (min-width: $bp-mobile-l) {
-    padding-bottom: $cube-spacing * $mobile-reduction-factor;
-  }
-
-  @media (min-width: $bp-tablet) {
-    padding-bottom: $cube-spacing;
-  }
 
   @media (min-width: $bp-desktop-s) {
     height: 100vh;
-    padding-top: $cube-spacing / 2;
-    padding-bottom: $cube-spacing / 2;
-    margin-top: $cube-spacing / 2;
-    margin-bottom: $cube-spacing / 2;
   }
 
   &-section {
@@ -26,15 +11,20 @@
   }
 
   &-slider {
-    $slide-height-desktop-s: 400px;
-    $slide-height-desktop-1280: 500px;
-    $slide-height-desktop-m: 575px;
+    $slide-height-desktop-s: 360px;
+    $slide-height-desktop-1160: 400px;
+    $slide-height-desktop-1280: 460px;
+    $slide-height-desktop-m: 530px;
     position: relative;
     width: 100%;
 
     @media (min-width: $bp-desktop-s) {
       overflow: hidden;
       height: $slide-height-desktop-s;
+    }
+
+    @media (min-width: 1160px) {
+      height: $slide-height-desktop-1160;
     }
 
     @media (min-width: 1280px) {
@@ -74,6 +64,10 @@
         clip-path: inset(0 0 0 0); // for Chome
       }
 
+      @media (min-width: 1160px) {
+        height: $slide-height-desktop-1160;
+      }
+
       @media (min-width: 1280px) {
         height: $slide-height-desktop-1280;
       }
@@ -94,7 +88,6 @@
         $content-spacing: 4 * $font-size-base;
         display: flex;
         flex-direction: column;
-        align-items: center;
 
         @media (min-width: $bp-desktop-s) {
           flex-direction: row;
@@ -113,7 +106,7 @@
 
           @media (min-width: $bp-desktop-s) {
             flex-basis: 100%;
-            margin-right: $content-spacing;
+            margin-right: 2.5 * $content-spacing;
             margin-bottom: 0;
           }
 
