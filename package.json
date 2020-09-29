@@ -4,6 +4,7 @@
   "author": "Eric Leite",
   "description": "",
   "private": true,
+  "homepage": "http://ericleite.github.io/space-tango",
   "config": {
     "bin": "./node_modules/.bin"
   },
