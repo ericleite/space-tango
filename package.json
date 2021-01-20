@@ -32,7 +32,7 @@
     "uglify-js-brunch": "^2.10.0"
   },
   "dependencies": {
-    "gsap": "^2.0.1",
+    "gsap": "^3.6.0",
     "lodash": "^4.17.10",
     "normalize.css": "^8.0.0",
     "scrollmagic": "^2.0.5"
